@@ -31,4 +31,25 @@ class OportunidadeController extends Controller
 	  Oportunidade::create($dados);
 	  return redirect()->route('admin.index');
 	}
+	public function editar($id){
+		$registro = Oportunidade::find($id);
+		return view('admin.editar', compact('registro'));
+	}
+
+	public function atualizar(Request $req, $id){
+		$dados = $req->all();
+
+		if(isset($dados['publicado'])){
+			$dados['publicado']	= 'sim';
+		}
+		else
+			$dados['publicado']	= 'nao';
+		Oportunidade::find($id)->update($dados);
+		return redirect()->route('admin.index');
+	}
+
+	public function deletar($id){
+		Oportunidade::find($id)->delete();
+		return redirect()->route('admin.index');		
+	}
 }
