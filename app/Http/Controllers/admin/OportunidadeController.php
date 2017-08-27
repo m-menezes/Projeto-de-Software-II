@@ -15,4 +15,20 @@ class OportunidadeController extends Controller
 		$naopublicados = (Oportunidade::where('publicado','nao')->count());
 		return view('admin.index', compact('registros', 'publicados', 'naopublicados'));
 	}
+
+	public function adicionar(){
+        return view('admin.adicionar');
+   }
+
+	public function salvar(Request $req){
+	  $dados = $req->all();
+
+	  if(isset($dados['publicado'])){
+	      $dados['publicado']    = 'sim';
+	  }
+	  else
+	      $dados['publicado']    = 'nao';
+	  Oportunidade::create($dados);
+	  return redirect()->route('admin.index');
+	}
 }

@@ -30,7 +30,7 @@
 						<div class="col s12 m6">
 							<p class="admin_small margin_bottom_small"><span>Centro:</span>{{ $registro->centro }}</p>
 							<p class="admin_small margin_bottom_small margin_top_small"><span>Data de Publicação:</span>{{$registro->created_at->format('H:i - d/m/Y')}}</p>
-							<a class="btn" href="{{route('postagem', $registro->id)}}"">Ver Detalhes</a>
+							
 						</div>
 					</div>
 				</div>
