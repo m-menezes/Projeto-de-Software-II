@@ -1,26 +1,16 @@
 <!-- URL DE MENUS -->
 
 <!-- TODOS -->
-<li class="active"><a href="/">Home</a></li>
-<li><a href="{{route('admin.bolsa')}}">Administração</a></li>
+<li id="home"><a href="/">Home</a></li>
+<li id="sobre"><a href="{{route('sobre')}}">Sobre</a></li>
 <!-- TODOS -->
-
-
 @if(Auth::guest())
 <!-- APENAS NÃO LOGADO -->
-
-
-<li><a href="/login">Entrar</a></li>
-
-
-
+<li id="login"><a href="/login">Entrar</a></li>
 <!-- APENAS NÃO LOGADO -->
 @else
 <!-- APENAS LOGADO -->
-
-
 <li>{{Auth::user()->name}}</li>
-<li><a href="/logout">Sair</a></li>
-
+<li id="logout"><a href="/logout">Sair</a></li>
 <!-- APENAS LOGADO -->
 @endif

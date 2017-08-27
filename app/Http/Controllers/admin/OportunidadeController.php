@@ -8,8 +8,11 @@ use App\Oportunidade;
 
 class OportunidadeController extends Controller
 {
-	public function home(){
-		$registros = Oportunidade::all();
-		return view('index', compact('registros'));
+
+	public function index(){
+		$registros = Oportunidade::orderBy('created_at', 'DESC')->get();
+		$publicados = (Oportunidade::where('publicado','sim')->count());
+		$naopublicados = (Oportunidade::where('publicado','nao')->count());
+		return view('admin.index', compact('registros', 'publicados', 'naopublicados'));
 	}
 }

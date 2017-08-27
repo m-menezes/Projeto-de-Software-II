@@ -1,7 +1,7 @@
 <div class="menu">
     <nav>
         <div class="nav-wrapper blue-grey darken-4">
-            <div class="container">
+            <div class="container" id="menu">
                 <a href="/" class="brand-logo">@include('_includes.title')</a>
                 <a href="#" data-activates="mobile" class="button-collapse"><i class="material-icons">menu</i></a>
                 <ul class="right hide-on-med-and-down">

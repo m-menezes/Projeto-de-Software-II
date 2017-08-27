@@ -11,5 +11,5 @@
 |
 */
 
-Route::get('/', ['as' => 'home', 'uses' => 'admin\OportunidadeController@home']);
-Route::get('/admin/bolsa', ['as' => 'admin.bolsa', 'uses' => 'admin\OportunidadeController@index']);
+Route::get('/', ['as' => 'home', 'uses' => 'usuario\ViewsController@home']);
+Route::get('/sobre', ['as' => 'sobre', 'uses' => 'usuario\ViewsController@sobre']);
