@@ -3,6 +3,7 @@
 <!-- TODOS -->
 <li id="home"><a href="/">Home</a></li>
 <li id="sobre"><a href="{{route('sobre')}}">Sobre</a></li>
+<li id="admin"><a href="{{route('admin.index')}}">Administração</a></li>
 <!-- TODOS -->
 @if(Auth::guest())
 <!-- APENAS NÃO LOGADO -->
