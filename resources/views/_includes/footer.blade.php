@@ -14,7 +14,7 @@
 							<div class="footer_title">
 								<p>Contato</p>
 							</div>
-							<p>projetodesoftware@contato.com</p>
+							<p>Universidade Federal de Santa Maria</p>
 						</div>
 						<!-- COPYRIGHT -->
 						<div class="col m12 footer_copyright">
@@ -35,6 +35,51 @@
 		<script type="text/javascript">
 			$(".button-collapse").sideNav();
 			$('select').material_select();
+
+			$(document).ready(function() {
+				var baseUrl = '/';                
+
+				switch ($(location).attr('pathname')) {
+					// PAINEL ADMINISTRATIVO
+					case ('/admin/index'):
+					$("#painel_visualizar").addClass('active');
+					$("#admin").addClass('active');
+					break;
+					case ('/admin/adicionar'):
+					$("#painel_add_postagem").addClass('active');
+					$("#admin").addClass('active');
+					break;
+					case ('/login'):
+					$("#painel_add_centro").addClass('active');
+					$("#admin").addClass('active');
+					break; 
+				}
+			});
+			$(document).ready(function() {
+				window_size = $('.content').height();
+				$('.m2>.painel').height(window_size);
+
+
+				var baseUrl = '/';                
+				switch ($(location).attr('pathname')) {
+					// MENU PADRAO
+					case ('/'):
+					$("#home").addClass('active');
+					break;
+					case ('/admin/index'):
+					$("#admin").addClass('active');
+					break;
+					case ('/login'):
+					$("#login").addClass('active');
+					break;
+					case ('/sobre'):
+					$("#sobre").addClass('active');
+					break;
+					case ('/logout'):
+					$("#logout").addClass('active');
+					break;                 
+				}
+			});
 		</script>
 	</body>
 	</html>
