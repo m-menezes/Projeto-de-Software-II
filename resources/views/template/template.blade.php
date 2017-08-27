@@ -1,4 +1,6 @@
 @include('_includes.header')
 @include('_includes.navbar')
-@yield('conteudo')
+<div class="content">
+	@yield('conteudo')
+</div>
 @include('_includes.footer')
