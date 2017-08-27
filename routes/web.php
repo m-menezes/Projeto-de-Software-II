@@ -13,3 +13,4 @@
 
 Route::get('/', ['as' => 'home', 'uses' => 'usuario\ViewsController@home']);
 Route::get('/sobre', ['as' => 'sobre', 'uses' => 'usuario\ViewsController@sobre']);
+Route::get('/postagem/{id}', ['as' => 'postagem', 'uses' => 'usuario\ViewsController@postagem']);
