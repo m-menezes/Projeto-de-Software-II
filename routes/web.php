@@ -11,6 +11,5 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', ['as' => 'home', 'uses' => 'admin\OportunidadeController@home']);
+Route::get('/admin/bolsa', ['as' => 'admin.bolsa', 'uses' => 'admin\OportunidadeController@index']);
