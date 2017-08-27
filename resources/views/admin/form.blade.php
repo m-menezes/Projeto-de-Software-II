@@ -6,26 +6,26 @@
 			<label>Titulo</label>
 		</div>
 		<div class="input-field col s12">
-			<textarea id="textarea_descricao" class="materialize-textarea" name="descricao" required value="{{isset($registro->descricao) ? $registro->descricao : ''}}"></textarea>
+			<textarea id="textarea_descricao" class="materialize-textarea" name="descricao" required >{{ isset($registro->descricao) ? $registro->descricao : ''}}</textarea>
 			<label for="textarea_descricao">Descrição</label>
 		</div>
 	</div>
 	<div class="col s12 m8">
 		<div class="input-field col s12">
-			<input type="text" name="email" required value="{{isset($registro->email) ? $registro->email : ''}}">
-			<label>Email</label>
+			<input id="email" type="email" class="validate" name="email" required value="{{isset($registro->email) ? $registro->email : ''}}">
+            <label for="email" data-error="Email inválido" data-success="Email válido">Email</label>
 		</div>
 		<div class="input-field col s12">
 			<select  name="centro">
 				<option value="0" {{ isset($registro->centro) && $registro->centro == '0' ? 'selected' : '' }}>Selecionar</option>
-				<option value="1" {{ isset($registro->centro) && $registro->centro == '1' ? 'selected' : '' }}>Artes e Letras</option>
-				<option value="2" {{ isset($registro->centro) && $registro->centro == '2' ? 'selected' : '' }}>Centro de Ciências da Saúde</option>
-				<option value="3" {{ isset($registro->centro) && $registro->centro == '3' ? 'selected' : '' }}>Centro de Ciências Sociais e Humanas</option>
-				<option value="4" {{ isset($registro->centro) && $registro->centro == '4' ? 'selected' : '' }}>Ciências Naturais e Exatas</option>
-				<option value="5" {{ isset($registro->centro) && $registro->centro == '5' ? 'selected' : '' }}>Ciências Rurais</option>
-				<option value="6" {{ isset($registro->centro) && $registro->centro == '6' ? 'selected' : '' }}>Educação</option>
-				<option value="7" {{ isset($registro->centro) && $registro->centro == '7' ? 'selected' : '' }}>Educação Física e Desportos</option>
-				<option value="8" {{ isset($registro->centro) && $registro->centro == '8' ? 'selected' : '' }}>Tecnologia</option>
+				<option value="Artes e Letras" {{ isset($registro->centro) && $registro->centro == 'Artes e Letras' ? 'selected' : '' }}>Artes e Letras</option>
+				<option value="Centro de Ciências da Saúde" {{ isset($registro->centro) && $registro->centro == 'Centro de Ciências da Saúde' ? 'selected' : '' }}>Centro de Ciências da Saúde</option>
+				<option value="Centro de Ciências Sociais e Humanas" {{ isset($registro->centro) && $registro->centro == 'Centro de Ciências Sociais e Humanas' ? 'selected' : '' }}>Centro de Ciências Sociais e Humanas</option>
+				<option value="Ciências Naturais e Exatas" {{ isset($registro->centro) && $registro->centro == 'Ciências Naturais e Exatas' ? 'selected' : '' }}>Ciências Naturais e Exatas</option>
+				<option value="Ciências Rurais" {{ isset($registro->centro) && $registro->centro == 'Ciências Rurais' ? 'selected' : '' }}>Ciências Rurais</option>
+				<option value="Educação" {{ isset($registro->centro) && $registro->centro == 'Educação' ? 'selected' : '' }}>Educação</option>
+				<option value="Educação Física e Desportos" {{ isset($registro->centro) && $registro->centro == 'Educação Física e Desportos' ? 'selected' : '' }}>Educação Física e Desportos</option>
+				<option value="Tecnologia" {{ isset($registro->centro) && $registro->centro == 'Tecnologia' ? 'selected' : '' }}>Tecnologia</option>
 			</select>
 			<label>Centro:</label>
 		</div>
@@ -39,7 +39,6 @@
 		</div>
 	</div>
 	<div class="col s12 m4">
-		
 		<div class="input-field col s12">
 			<input type="text" name="criado" disabled value="{{isset($registro->criado) ? $registro->criado : 'Auth::user()->name'}}">
 			<label>Criado por: </label>
