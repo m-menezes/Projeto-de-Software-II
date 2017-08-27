@@ -87,3 +87,131 @@ body{
 	padding: 0px !important;
 }
 /*PADDING*/
+/*MOBILE*/
+@media(max-width: 600px){
+	.brand-logo{
+		font-size: 5vw !important;
+	}
+	.footer_copyright,
+	.footer{
+		text-align: center !important;
+	}
+	.admin_controles{
+		margin: 10px 0px;
+	}
+	.postagem{
+		text-align: center;
+	}
+}
+/*MOBILE*/
+/*DESKTOP*/
+@media(min-width: 600px){
+	form.m_borda,
+	.m_borda{
+		border:1px solid black;
+	}
+	.footer_2{
+		text-align: right;
+	}
+	.admin_small{
+		font-size: 1.05vw;
+	}
+	.admin_small span{
+		font-weight: 600;
+		font-size: 1.15vw;
+	}
+	.postagem{
+		min-height: 180px;
+		text-align: justify;
+	}
+	.admin_normal h5{
+		font-size: 1.5vw;
+	}
+}
+/*DESKTOP*/
+/*FOOTER*/
+footer{
+	color: #ccc;
+}
+.footer_title{
+	border-bottom: 2px solid #ccc;
+}
+.footer_title p{
+	margin: 5px;
+}
+.footer_copyright>.s12{
+	border-top: 2px solid #ccc;
+}
+.footer_copyright>.s12>p{
+	margin: 3px;
+	font-size: 12px;
+}
+ul.mapa_site> li > a {
+	color: white;
+}
+/*FOOTER*/
+.admin_normal h5{
+	text-transform: uppercase;
+	font-weight: 600;
+	color: #26a69a;
+}
+.m_borda_title h5{
+	padding: 0px 20px;
+}
+.lista_postagens{
+	border-bottom: 1px solid black;
+}
+
+/*EXIBIÇÃO ADMIN*/
+.postagem span{
+	display: block;
+}
+.admin_normal.descricao{
+	text-align: justify;
+}
+.border_lighten{
+	border-left: 10px solid #263238;
+	border-right: 1px solid #263238;
+	border-bottom: 1px solid #263238;
+	border-top: 1px solid #263238;
+	margin-bottom: 20px;
+}
+.smaller span{
+	font-weight: 600;
+	font-size: 0.8rem;
+	color: #26a69a;
+	text-decoration: underline;
+}
+.smaller h5,
+.smaller p{
+	margin: 0px;
+}
+.smaller{
+	padding: 10px 0px !important;
+}
+/*EXIBIÇÃO ADMIN*/
+
+.painel > nav > ul > li:not(.active){
+	background: #37474f !important;
+}
+.painel > nav > ul > li.active,
+#menu > ul > li.active{
+	background: #000000 !important;
+}
+.painel> nav > ul > li{
+	width: 100% !important;
+}
+.estatistica p{
+	padding: 10px 20px;
+	width: 100%;
+	display: block;
+	text-align: center;
+	border-radius: 5px;
+	color: white;
+	font-weight: 600;
+}
+.estatistica span{
+	font-size: 20px;
+	font-weight: 300;
+	padding-right: 10px;
+}
