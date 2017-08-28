@@ -14,7 +14,7 @@
 					<p class="teal darken-1"><span>{{count($registros)}}</span>Postagens</p>
 				</div>
 				<div class="col s12 m4">
-					<p class="teal darken-2"><span>{{$publicados}}</span>Publicados</p>
+					<p class="light-green"><span>{{$publicados}}</span>Publicados</p>
 				</div>
 				<div class="col s12 m4">
 					<p class="red"><span>{{$naopublicados}}</span>Não Publicados</p>
