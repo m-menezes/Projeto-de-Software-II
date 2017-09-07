@@ -24,3 +24,4 @@ Route::get('/admin/editar/{id}', ['as' => 'admin.editar', 'uses' => 'admin\Oport
 Route::put('/admin/atualizar/{id}', ['as' => 'admin.atualizar', 'uses' => 'admin\OportunidadeController@atualizar']);
 Route::get('/admin/deletar/{id}', ['as' => 'admin.deletar', 'uses' => 'admin\OportunidadeController@deletar']);
 Route::post('/admin/salvar', ['as' => 'admin.salvar', 'uses' => 'admin\OportunidadeController@salvar']);
+Route::get('/login',['as' => 'login', 'uses' => 'Auth\LoginController@showLogin']);
