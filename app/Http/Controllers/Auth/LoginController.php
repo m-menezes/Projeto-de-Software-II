@@ -45,4 +45,9 @@ class LoginController extends Controller
     {
         return view('login');
     }
+
+    public function doLogin()
+    {
+        return 'Implementation not ready :)';
+    }
 }

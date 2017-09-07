@@ -6,20 +6,6 @@
   <link rel="stylesheet" href="{{asset('css/login.css')}}">
   <meta charset="UTF-8">
   <title>Document</title>
-<style>
-  html,
-body {
-    height: 100%;
-}
-html {
-    display: table;
-    margin: auto;
-}
-body {
-    display: table-cell;
-    vertical-align: middle;
-}
-</style>
 </head>
 <body class="blue-grey darken-4">
    <!-- Start Page Loading -->
@@ -34,7 +20,7 @@ body {
 
   <div id="login-page" class="row">
     <div class="col s12 z-depth-4 card-panel">
-      <form class="login-form">
+      <form action="{{ action('Auth\LoginController@doLogin') }}"  class="login-form">
         <div class="row">
           <div class="input-field col s12 center">
             <img class="logo" src="http://w3.ufsm.br/ccsh/modules/mod_ufsm_logo/images/brasao-cores.png" alt="" class="circle responsive-img valign profile-image-login" style="max-width: 120px; max-height: 120px">
@@ -63,7 +49,7 @@ body {
         </div>
         <div class="row">
           <div class="input-field col s12">
-            <a href="index.html" class="btn waves-effect waves-light col s12">Login</a>
+            <input class="btn waves-effect waves-light col s12" type="submit" value="Submit">
           </div>
         </div>
         <div class="row">
