@@ -26,4 +26,4 @@ Route::get('/admin/deletar/{id}', ['as' => 'admin.deletar', 'uses' => 'admin\Opo
 Route::post('/admin/salvar', ['as' => 'admin.salvar', 'uses' => 'admin\OportunidadeController@salvar']);
 
 Route::get('/login',['as' => 'login', 'uses' => 'Auth\LoginController@showLogin']);
-Route::get('/doLogin',['as' => 'doLogin', 'uses' => 'Auth\LoginController@doLogin']);
+Route::post('/doLogin',['as' => 'doLogin', 'uses' => 'Auth\LoginController@doLogin']);

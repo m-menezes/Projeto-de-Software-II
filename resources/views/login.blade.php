@@ -20,42 +20,52 @@
 
   <div id="login-page" class="row">
     <div class="col s12 z-depth-4 card-panel">
-      <form action="{{ action('Auth\LoginController@doLogin') }}"  class="login-form">
+      <form method="POST" action="{{ route('doLogin') }}"  class="login-form">
+      {{ csrf_field() }}
+
+
         <div class="row">
           <div class="input-field col s12 center">
             <img class="logo" src="http://w3.ufsm.br/ccsh/modules/mod_ufsm_logo/images/brasao-cores.png" alt="" class="circle responsive-img valign profile-image-login" style="max-width: 120px; max-height: 120px">
             <p class="teal-text text-darken-2 flow-text center login-form-text">Oportunidades UFSM</p>
           </div>
         </div>
+
         <div class="row margin">
           <div class="input-field col s12">
             <i class="mdi-social-person-outline prefix"></i>
-            <input id="username" type="text">
-            <label for="username" class="center-align">Usuário</label>
+            <input name="email" id="username" type="text" required>
+            <label for="username" class="center-align">Email</label>
           </div>
         </div>
+
         <div class="row margin">
           <div class="input-field col s12">
             <i class="mdi-action-lock-outline prefix"></i>
-            <input id="password" type="password">
+            <input name="password" id="password" type="password" required>
             <label for="password">Senha</label>
           </div>
         </div>
+
         <div class="row">          
           <div class="input-field col s12 m12 l12  login-text">
               <input type="checkbox" id="remember-me" />
               <label for="remember-me">Salvar Credenciais</label>
           </div>
         </div>
+
         <div class="row">
-          <div class="input-field col s12">
-            <input class="btn waves-effect waves-light col s12" type="submit" value="Submit">
+          <div class="input-field col s12">            
+             <button class="btn waves-effect waves-light col s12" type="submit" name="action">LOGIN			   
+			 </button>            
           </div>
         </div>
+
         <div class="row">
           <div class="input-field col s6 m6 l6">
             <p class="margin medium-small"><a href="page-register.html">Registre-se Agora</a></p>
           </div>
+
           <div class="input-field col s6 m6 l6">
               <p class="margin right-align medium-small"><a href="page-forgot-password.html">Esqueceu sua senha ?</a></p>
           </div>          

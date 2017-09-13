@@ -2,8 +2,11 @@
 
 namespace App\Http\Controllers\Auth;
 
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
+
 
 class LoginController extends Controller
 {
@@ -46,8 +49,17 @@ class LoginController extends Controller
         return view('login');
     }
 
-    public function doLogin()
+    public function doLogin(Request $request)
     {
-        return 'Implementation not ready :)';
+        $email          = $request->input('email');
+        $password       = $request->input('password');
+
+        dd($request->all());
+    }
+
+    public function logout()
+    {
+        Auth::logout();
+        return redirect()->route('home');
     }
 }
