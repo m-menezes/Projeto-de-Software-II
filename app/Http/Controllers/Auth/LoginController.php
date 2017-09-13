@@ -51,10 +51,12 @@ class LoginController extends Controller
 
     public function doLogin(Request $request)
     {
-        $email          = $request->input('email');
-        $password       = $request->input('password');
+        $email          = $request['email'];
+        $password       = $request['password'];
 
-        dd($request->all());
+        if ( Auth::attempt(['email' => $email, 'password' => $password]) )
+            return redirect()->route('home');
+        return redirect()->back(); 
     }
 
     public function logout()
