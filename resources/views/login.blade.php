@@ -47,7 +47,7 @@
           </div>
         </div>
 
-        <div class="row">          
+        <div class="row">
           <div class="input-field col s12 m12 l12  login-text">
               <input type="checkbox" id="remember-me" />
               <label for="remember-me">Salvar Credenciais</label>
@@ -63,7 +63,7 @@
 
         <div class="row">
           <div class="input-field col s6 m6 l6">
-            <p class="margin medium-small"><a href="page-register.html">Registre-se Agora</a></p>
+            <p class="margin medium-small"><a href="{{ route('register') }}">Registre-se Agora</a></p>
           </div>
 
           <div class="input-field col s6 m6 l6">
