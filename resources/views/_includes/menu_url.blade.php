@@ -12,6 +12,6 @@
 @else
 <!-- APENAS LOGADO -->
 <li>{{Auth::user()->name}}</li>
-<li id="logout"><a href="/logout">Sair</a></li>
+<li id="logout"><a href="{{ route('logout')}}">Sair</a></li>
 <!-- APENAS LOGADO -->
 @endif
