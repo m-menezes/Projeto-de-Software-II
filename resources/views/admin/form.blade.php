@@ -53,3 +53,9 @@
 		</div>
 	</div>
 </div>
+
+@section('script')
+$(document).ready(function() {
+	$('#textarea_descricao').trigger('autoresize');
+});
+@endsection('script')
