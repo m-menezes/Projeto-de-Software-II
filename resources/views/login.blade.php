@@ -1,137 +1,65 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/css/materialize.min.css">
-  <link rel="stylesheet" href="{{asset('css/login.css')}}">
-  <meta charset="UTF-8">
-  <title>Document</title>
-</head>
-<body class="blue-grey darken-4">
-   <!-- Start Page Loading -->
-  <div id="loader-wrapper">
-      <div id="loader"></div>        
-      <div class="loader-section section-left"></div>
-      <div class="loader-section section-right"></div>
-  </div>
-  <!-- End Page Loading -->
+@extends('template.template')
 
-
-
-  <div id="login-page" class="row">
-    <div class="col s12 z-depth-4 card-panel">
-      <form method="POST" action="{{ route('doLogin') }}"  class="login-form">
-      {{ csrf_field() }}
-
-
-        <div class="row">
-          <div class="input-field col s12 center">
-            <img class="logo" src="http://w3.ufsm.br/ccsh/modules/mod_ufsm_logo/images/brasao-cores.png" alt="" class="circle responsive-img valign profile-image-login" style="max-width: 120px; max-height: 120px">
-            <p class="teal-text text-darken-2 flow-text center login-form-text">Oportunidades UFSM</p>
-          </div>
-        </div>
-
-        <div class="row margin">
-          <div class="input-field col s12">
-            <i class="mdi-social-person-outline prefix"></i>
-            <input name="email" id="username" type="text" required>
-            <label for="username" class="center-align">Email</label>
-          </div>
-        </div>
-
-        <div class="row margin">
-          <div class="input-field col s12">
-            <i class="mdi-action-lock-outline prefix"></i>
-            <input name="password" id="password" type="password" required>
-            <label for="password">Senha</label>
-          </div>
-        </div>
-
-        <div class="row">
-          <div class="input-field col s12 m12 l12  login-text">
-              <input type="checkbox" id="remember-me" />
-              <label for="remember-me">Salvar Credenciais</label>
-          </div>
-        </div>
-
-        <div class="row">
-          <div class="input-field col s12">            
-             <button class="btn waves-effect waves-light col s12" type="submit" name="action">LOGIN			   
-			 </button>            
-          </div>
-        </div>
-
-        <div class="row">
-          <div class="input-field col s6 m6 l6">
-            <p class="margin medium-small"><a href="{{ route('register') }}">Registre-se Agora</a></p>
-          </div>
-
-          <div class="input-field col s6 m6 l6">
-              <p class="margin right-align medium-small"><a href="page-forgot-password.html">Esqueceu sua senha ?</a></p>
-          </div>          
-        </div>
-
-      </form>
+@section('conteudo')
+<body class="azul-2">
+    <!-- Start Page Loading -->
+    <div id="loader-wrapper">
+        <div id="loader"></div>        
+        <div class="loader-section section-left"></div>
+        <div class="loader-section section-right"></div>
     </div>
-  </div>
+    <!-- End Page Loading -->
+    <div id="login-page" class="row">
+        <div class="col s12 z-depth-4 card-panel">
+            <form method="POST" action="{{ route('doLogin') }}"  class="login-form">
+                {{ csrf_field() }}
+                <div class="row">
+                    <div class="input-field col s12 center">
+                        <img class="brasao-UFSM" src="/img/ufsm-linha-cor.jpg" alt="Imagem do brasão composta por quatro elementos: escudo, flor de lis, archotes e lema. Todos contornados por fino traço preto. O escudo, na cor azul, ocupa a maior parte do brasão. Tem a forma de um retângulo vertical com a base arredondada e levemente afunilada. Centralizada no escudo, uma grande flor de lis estilizada, inclinada à esquerda, formada por um archote aceso entre duas pétalas espelhadas, em dois tons de prata. Atrás do escudo, três archotes dourados, frisados verticalmente, posicionados lado a lado, dos quais se veem apenas as extremidades. Acima do escudo, as pontas dos archotes com chamas alaranjadas. Abaixo do escudo, as bases dos archotes entrelaçadas por um listel azul com o lema Sedes Sapientiae, em letras maiúsculas, na cor prata. Circundando o brasão no sentido horário, em letras garrafais pretas: Universidade Federal de Santa Maria, 1960, com o ano centralizado na base.">
+                        <p class="teal-text text-darken-2 flow-text center login-form-text">{{config('app.name')}}</p>
+                    </div>
+                </div>
 
+                <div class="row margin">
+                    <div class="input-field col s12">
+                        <input name="email" id="username" type="text" required>
+                        <label for="username" class="center-align">Email</label>
+                    </div>
+                </div>
 
+                <div class="row margin">
+                    <div class="input-field col s12">
+                        <input name="password" id="password" type="password" required>
+                        <label for="password">Senha</label>
+                    </div>
+                </div>
 
-  <!-- ================================================
-                          Scripts
-    ================================================ -->  
-  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.1/jquery.min.js"></script>
-  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/js/materialize.min.js"></script>  
-</body>
-</html>
+                <div class="row">
+                    <div class="input-field col s12 m12 l12  login-text">
+                        <input type="checkbox" id="remember-me" />
+                        <label for="remember-me">Salvar Credenciais</label>
+                    </div>
+                </div>
 
-<!-- 
-<div id="login-page" class="row">
-    <div class="col s12 z-depth-6 card-panel">
-      <form class="login-form">
-        <div class="row">
-          <div class="input-field col s12 center">
-            <img src="http://detroitit.com/wp-content/uploads/2015/12/ico-it-support.svg" alt="" class="responsive-img valign profile-image-login" style="max-height: 100px; max-width: 100px;">
-            <p class="flow-text center login-form-text light-green-text text-darken-2">Oportunidades UFSM</p>
-          </div>
+                <div class="row">
+                    <div class="input-field col s12">            
+                        <button class="btn azul-3 col s12" type="submit" name="action">LOGIN			   
+                        </button>            
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="input-field col s6 m6 l6">
+                        <p class="margin medium-small"><a href="{{ route('register') }}">Registre-se Agora</a></p>
+                    </div>
+
+                    <div class="input-field col s6 m6 l6">
+                        <p class="margin right-align medium-small"><a href="page-forgot-password.html">Esqueceu sua senha ?</a></p>
+                    </div>          
+                </div>
+
+            </form>
         </div>
-        <div class="row margin">
-          <div class="input-field col s12">
-            <i class="mdi-social-person-outline prefix"></i>
-            <input class="validate" id="email" type="email">
-            <label for="email" data-error="wrong" data-success="right" class="center-align">Email</label>
-          </div>
-        </div>
-        <div class="row margin">
-          <div class="input-field col s12">
-            <i class="mdi-action-lock-outline prefix"></i>
-            <input id="password" type="password">
-            <label for="password">Password</label>
-          </div>
-        </div>
-        <div class="row">          
-          <div class="input-field col s12 m12 l12  login-text">
-              <input type="checkbox" id="remember-me" />
-              <label for="remember-me">Salvar Credenciais</label>
-          </div>
-        </div>
-        <div class="row">
-          <div class="input-field col s12">
-            <a href="login.html" class="btn waves-effect waves-light col s12">Login</a>
-          </div>
-        </div>
-        <div class="row">
-          <div class="input-field col s6 m6 l6">
-            <p class="margin medium-small"><a href="register.html">Criar Conta</a></p>
-          </div>
-          <div class="input-field col s6 m6 l6">
-              <p class="margin right-align medium-small"><a href="forgot-password.html">Esqueceu sua Senha?</a></p>
-          </div>          
-        </div>
- 
-      </form>
     </div>
-  </div>
 
-
--->
+    @endsection('conteudo')

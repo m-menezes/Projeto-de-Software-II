@@ -5,7 +5,7 @@
 
 <div class="row">
 	<div class="container">
-		<div class="col s12 m12 m_borda">
+		<div class="col s12 m12 m_borda margin_top_huge margin_bottom_huge">
 			<div class="col s12 m12 padding_large">
 				<div class="col s12 smaller">
 					<span>Titulo</span>

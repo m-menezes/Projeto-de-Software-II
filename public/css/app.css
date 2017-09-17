@@ -5,6 +5,26 @@ body{
 .content{
 	min-height: 70.8vh;
 }
+/*COLOR*/
+.azul-1{
+	background-color: #0e7ec1 !important;
+}
+.azul-2{
+	background-color: #005285 !important;
+}
+.azul-3{
+	background-color: #053552 !important;
+}
+.cinza-1{
+	background-color: #CCCCCC !important
+}
+.cinza-2{
+	background-color: #607d8b !important
+}
+.cinza-3{
+	background-color: #323e44 !important
+}
+/*COLOR*/
 /*MARGIN*/
 .margin_bottom_small{
 	margin-bottom: 5px;
@@ -28,7 +48,7 @@ body{
 	margin: 20px;
 }
 .margin_huge{
-	margin: 50px;
+	margin: 50px !important;
 }
 .margin_top_small{
 	margin-top: 5px;
@@ -90,7 +110,7 @@ body{
 /*MOBILE*/
 @media(max-width: 600px){
 	.brand-logo{
-		font-size: 5vw !important;
+		font-size: 4vw !important;
 	}
 	.footer_copyright,
 	.footer{
@@ -101,6 +121,9 @@ body{
 	}
 	.postagem{
 		text-align: center;
+	}
+	.UFSM-logo{
+		display: none;
 	}
 }
 /*MOBILE*/
@@ -127,11 +150,30 @@ body{
 	.admin_normal h5{
 		font-size: 1.5vw;
 	}
+	#login-page{
+		margin-top: 30px !important;
+		margin-bottom: 30px !important;
+	}
+	.admin{
+		min-height: 700px !important;
+	}
+
 }
 /*DESKTOP*/
 /*FOOTER*/
 footer{
 	color: #ccc;
+	border-top:5px solid #ccc;
+}
+.footer{
+	text-align: center;
+}
+.footer img{
+	max-width: 40%;
+}
+.UFSM-logo img{
+	height: 50px;
+	margin: 5px 20px;
 }
 .footer_title{
 	border-bottom: 2px solid #ccc;
@@ -150,10 +192,20 @@ ul.mapa_site> li > a {
 	color: white;
 }
 /*FOOTER*/
+#login-page{
+	display: table;
+	margin: auto;
+}
+.brasao-UFSM{
+	width: 130px;
+}
+.nav-wrapper{
+	border-bottom: 5px solid #ccc;
+}
 .admin_normal h5{
 	text-transform: uppercase;
 	font-weight: 600;
-	color: #26a69a;
+	color: #053552;
 }
 .m_borda_title h5{
 	padding: 0px 20px;
@@ -170,16 +222,16 @@ ul.mapa_site> li > a {
 	text-align: justify;
 }
 .border_lighten{
-	border-left: 10px solid #263238;
-	border-right: 1px solid #263238;
-	border-bottom: 1px solid #263238;
-	border-top: 1px solid #263238;
+	border-left: 10px solid #053552;
+	border-right: 1px solid #053552;
+	border-bottom: 1px solid #053552;
+	border-top: 1px solid #053552;
 	margin-bottom: 20px;
 }
 .smaller span{
 	font-weight: 600;
 	font-size: 0.8rem;
-	color: #26a69a;
+	color: #053552;
 	text-decoration: underline;
 }
 .smaller h5,
@@ -192,11 +244,11 @@ ul.mapa_site> li > a {
 /*EXIBIÇÃO ADMIN*/
 
 .painel > nav > ul > li:not(.active){
-	background: #37474f !important;
+	background: #053552 !important;
 }
 .painel > nav > ul > li.active,
 #menu > ul > li.active{
-	background: #000000 !important;
+	background: #005285 !important;
 }
 .painel> nav > ul > li{
 	width: 100% !important;

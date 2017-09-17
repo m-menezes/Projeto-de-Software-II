@@ -5,7 +5,7 @@
 
 <div class="row">
 	<div class="container">
-		<div class="col s12 m12">
+		<div class="col s12 m12 margin_top_huge margin_bottom_huge">
 			<div class="sobre">
 				<h5>Sobre</h5>
 				<p>

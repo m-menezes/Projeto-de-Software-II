@@ -31,7 +31,7 @@
 					</div>
 				</div>
 			</form>
-			<div class="margin_bottom_large col s12 btn blue-grey darken-4">
+			<div class="margin_bottom_large col s12 btn azul-3">
 				Buscar
 			</div>
 		</div>

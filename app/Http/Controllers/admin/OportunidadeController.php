@@ -11,9 +11,14 @@ class OportunidadeController extends Controller
 
 	public function index(){
 		$registros = Oportunidade::orderBy('created_at', 'DESC')->get();
+		return view('admin.index', compact('registros'));
+	}
+	public function loadchart(){
+		$registros = Oportunidade::orderBy('created_at', 'DESC')->get();
 		$publicados = (Oportunidade::where('publicado','sim')->count());
 		$naopublicados = (Oportunidade::where('publicado','nao')->count());
-		return view('admin.index', compact('registros', 'publicados', 'naopublicados'));
+		$postagens = count($registros);
+		return(compact('postagens','publicados', 'naopublicados'));
 	}
 
 	public function adicionar(){
@@ -22,7 +27,6 @@ class OportunidadeController extends Controller
 
 	public function salvar(Request $req){
 	  $dados = $req->all();
-
 	  if(isset($dados['publicado'])){
 	      $dados['publicado']    = 'sim';
 	  }
@@ -51,5 +55,18 @@ class OportunidadeController extends Controller
 	public function deletar($id){
 		Oportunidade::find($id)->delete();
 		return redirect()->route('admin.index');		
+	}
+
+	public function publicado(Request $id){
+		$id = $id->all();
+		$id = $id["id"];
+		$oportunidade = Oportunidade::find($id);
+		if($oportunidade->publicado == 'nao'){
+			$oportunidade->publicado = "sim";	
+		}else{
+			$oportunidade->publicado = "nao";
+		}
+		$oportunidade->update();
+		return($oportunidade->publicado);
 	}
 }

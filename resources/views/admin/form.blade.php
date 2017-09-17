@@ -17,7 +17,7 @@
 		</div>
 		<div class="input-field col s12">
 			<select  name="centro">
-				<option value="0" {{ isset($registro->centro) && $registro->centro == '0' ? 'selected' : '' }}>Selecionar</option>
+				<option value="Sem Centro" {{ isset($registro->centro) && $registro->centro == 'Sem Centro' ? 'selected' : '' }}>Selecionar</option>
 				<option value="Artes e Letras" {{ isset($registro->centro) && $registro->centro == 'Artes e Letras' ? 'selected' : '' }}>Artes e Letras</option>
 				<option value="Centro de Ciências da Saúde" {{ isset($registro->centro) && $registro->centro == 'Centro de Ciências da Saúde' ? 'selected' : '' }}>Centro de Ciências da Saúde</option>
 				<option value="Centro de Ciências Sociais e Humanas" {{ isset($registro->centro) && $registro->centro == 'Centro de Ciências Sociais e Humanas' ? 'selected' : '' }}>Centro de Ciências Sociais e Humanas</option>
@@ -40,7 +40,7 @@
 	</div>
 	<div class="col s12 m4">
 		<div class="input-field col s12">
-			<input type="text" name="criado" disabled value="{{isset($registro->criado) ? $registro->criado : 'Auth::user()->name'}}">
+			<input type="text" disabled name="criado" value="{{isset($registro->criado) ? $registro->criado : 'Auth::user()->name'}}">
 			<label>Criado por: </label>
 		</div>
 		<div class="input-field col s12">
