@@ -15,7 +15,7 @@
 // Pages that NEED authentication to be accessed
 Route::group(['middleware' => 'auth' ], function(){
 	// Admin's Routes
-	Route::get('/admin/index', [ 			'as' => 'admin.index', 		'uses' => 'admin\OportunidadeController@index' ]);
+	Route::get('/admin/index', [ 			   'as' => 'admin.index', 		'uses' => 'admin\OportunidadeController@index' ]);
 	Route::get('/admin/adicionar', [ 		'as' => 'admin.adicionar', 	'uses' => 'admin\OportunidadeController@adicionar']);
 	Route::get('/admin/editar/{id}', [ 		'as' => 'admin.editar', 	'uses' => 'admin\OportunidadeController@editar']);
 	Route::put('/admin/atualizar/{id}', [ 	'as' => 'admin.atualizar',	'uses' => 'admin\OportunidadeController@atualizar']);
@@ -23,6 +23,11 @@ Route::group(['middleware' => 'auth' ], function(){
 	Route::post('/admin/salvar', [			'as' => 'admin.salvar', 	'uses' => 'admin\OportunidadeController@salvar']);
 	Route::get('/admin/loadchart', [		'as' => 'admin.loadchart', 	'uses' => 'admin\OportunidadeController@loadchart' ]);
 	Route::get('/admin/publicado', [		'as' => 'admin.publicado', 	'uses' => 'admin\OportunidadeController@publicado']);
+	Route::get('/admin/adicionar/areas', [		'as' => 'admin.novaArea', 	'uses' => 'admin\OportunidadeController@novaArea']);
+	Route::post('/registerArea', [ 'as' => 'registerArea', 'uses' => 'admin\OportunidadeController@registerArea']);
+	
+	Route::get('/admin/adicionar/cursos', [ 'as' => 'admin.novoCurso', 	'uses' => 'admin\OportunidadeController@novoCurso']);
+	Route::post('/registerCurso', [ 'as' => 'registerCurso', 'uses' => 'admin\OportunidadeController@registerCurso']);
 });
 
 // View's Routes
