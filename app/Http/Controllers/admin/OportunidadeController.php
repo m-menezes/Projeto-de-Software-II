@@ -13,7 +13,7 @@ class OportunidadeController extends Controller
 	public function index()
 	{
 		$registros = Oportunidade::orderBy('created_at', 'DESC')->get();
-		return view('admin.index', compact('registros'));
+		return view('admin.index', compact( ['registros', 'areas'] ));
 	}
 
 

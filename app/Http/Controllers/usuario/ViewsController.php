@@ -8,9 +8,10 @@ use App\Oportunidade;
 
 class ViewsController extends Controller
 {
-	public function home(){
+	public function home(){		
 		$registros = Oportunidade::all();
-		return view('index', compact('registros'));
+		$areas     = \App\Area::all();
+		return view('index', compact(['registros', 'areas']));
 	}
 
 	public function postagem($id){

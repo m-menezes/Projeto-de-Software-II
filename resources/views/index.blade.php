@@ -3,7 +3,7 @@
 @section('conteudo')
 <!-- CONTEUDO INTERNO SITE -->
 <div class="margin_top_huge margin_bottom_huge">
-	@include('_includes.search')
+	@include('_includes.search', ['areas' => $areas] )
 	<div class="row">
 		<div class="container">
 			<div class="postagens">

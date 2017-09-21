@@ -26,7 +26,11 @@
 						<label>Centro</label>
 					</div>
 					<div class="input-field col s6">
-						<input id="input_text" type="text">
+						<select name="area_id">
+							@foreach($areas as $area)
+								<option value="{{ $area->id }}">{{ $area->descricao }}</option>
+							@endforeach
+						</select>
 						<label for="input_text">Area de Conhecimento</label>
 					</div>
 				</div>
