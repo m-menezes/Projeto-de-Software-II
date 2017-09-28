@@ -35,6 +35,9 @@ Route::get('/', [ 							'as' => 'home', 			'uses' => 'usuario\ViewsController@h
 Route::get('/sobre', [ 						'as' => 'sobre', 			'uses' => 'usuario\ViewsController@sobre']);
 Route::get('/postagem/{id}', [ 				'as' => 'postagem', 		'uses' => 'usuario\ViewsController@postagem']);
 
+//Apenas um teste =)
+Route::get('/teste', [ 							'as' => 'teste', 			'uses' => 'usuario\ViewsController@teste']);
+
 
 // Auth Routes
 Route::get('/login',[						'as' => 'login', 			'uses' => 'Auth\LoginController@showLogin']);

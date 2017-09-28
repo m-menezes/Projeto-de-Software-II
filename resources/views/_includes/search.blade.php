@@ -12,20 +12,6 @@
 						<label for="input_text">Busca</label>
 					</div>
 					<div class="input-field col s6">
-						<select name="centro">
-							<option value="s" disabled selected>Selecionar</option>
-							<option value="1">Artes e Letras</option>
-							<option value="2">Centro de Ciências da Saúde</option>
-							<option value="3">Centro de Ciências Sociais e Humanas</option>
-							<option value="4">Ciências Naturais e Exatas</option>
-							<option value="5">Ciências Rurais</option>
-							<option value="6">Educação</option>
-							<option value="7">Educação Física e Desportos</option>
-							<option value="8">Tecnologia</option>
-						</select>
-						<label>Centro</label>
-					</div>
-					<div class="input-field col s6">
 						<select name="area_id">
 							@foreach($areas as $area)
 								<option value="{{ $area->id }}">{{ $area->descricao }}</option>
