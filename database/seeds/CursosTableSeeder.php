@@ -11,7 +11,8 @@ class CursosTableSeeder extends Seeder
      */
     public function run()
     {
-		App\Curso::create( [ 'descricao' => 'Administração',           'area_id' => '1' ] ); //Ciências Sociais Aplicadas - 1
+    	//CURSOS UFSM
+		/*App\Curso::create( [ 'descricao' => 'Administração',           'area_id' => '1' ] ); //Ciências Sociais Aplicadas - 1
 		App\Curso::create( [ 'descricao' => 'Agronomia',               'area_id' => '2' ] ); //Ciências Agrárias - 2
 		App\Curso::create( [ 'descricao' => 'Tecnologia em Alimentos', 'area_id' => '2' ] );
 		App\Curso::create( [ 'descricao' => 'Arquitetura e Urbanismo', 'area_id' => '1' ] );
@@ -71,7 +72,55 @@ class CursosTableSeeder extends Seeder
 		App\Curso::create( [ 'descricao' => 'Sistemas para Internet',					'area_id' => '4' ] );
 		App\Curso::create( [ 'descricao' => 'Teatro',										'area_id' => '3' ] );
 		App\Curso::create( [ 'descricao' => 'Terapia Ocupacional',						'area_id' => '8' ] );
-		App\Curso::create( [ 'descricao' => 'Zootecnia',									'area_id' => '2' ] );
+		App\Curso::create( [ 'descricao' => 'Zootecnia',									'area_id' => '2' ] );*/
+
+
+
+		//CURSOS UNIFRA
+
+		//Ciências da Saúde
+		App\Curso::create( [ 'descricao' => 'Biomedicina',							'area_id' => '1' ] );
+		App\Curso::create( [ 'descricao' => 'Enfermagem',							'area_id' => '1' ] );
+		App\Curso::create( [ 'descricao' => 'Farmácia',								'area_id' => '1' ] );
+		App\Curso::create( [ 'descricao' => 'Fisioterapia',						'area_id' => '1' ] );
+		App\Curso::create( [ 'descricao' => 'Medicina',								'area_id' => '1' ] );
+		App\Curso::create( [ 'descricao' => 'Nutrição',								'area_id' => '1' ] );
+		App\Curso::create( [ 'descricao' => 'Odontologia',							'area_id' => '1' ] );
+		App\Curso::create( [ 'descricao' => 'Terapia Ocupacional',				'area_id' => '1' ] );
+		
+		//Ciências Humanas
+		App\Curso::create( [ 'descricao' => 'Filosofia',							'area_id' => '2' ] );
+		App\Curso::create( [ 'descricao' => 'Geografia',							'area_id' => '2' ] );
+		App\Curso::create( [ 'descricao' => 'História',								'area_id' => '2' ] );
+		App\Curso::create( [ 'descricao' => 'Letras - Lingua Portuguesa',		'area_id' => '2' ] );
+		App\Curso::create( [ 'descricao' => 'Letras - Português e Inglês',	'area_id' => '2' ] );
+		App\Curso::create( [ 'descricao' => 'Pedagogia',							'area_id' => '2' ] );
+		App\Curso::create( [ 'descricao' => 'Psicologia',							'area_id' => '2' ] );
+		App\Curso::create( [ 'descricao' => 'Serviço Social',						'area_id' => '2' ] );
+
+		//Ciências Sociais
+		App\Curso::create( [ 'descricao' => 'Administração',						'area_id' => '3' ] );
+		App\Curso::create( [ 'descricao' => 'Ciências Contábeis',				'area_id' => '3' ] );
+		App\Curso::create( [ 'descricao' => 'Ciências Econômicas',				'area_id' => '3' ] );
+		App\Curso::create( [ 'descricao' => 'Direito',								'area_id' => '3' ] );
+		App\Curso::create( [ 'descricao' => 'Jornalismo',							'area_id' => '3' ] );
+		App\Curso::create( [ 'descricao' => 'Publicidade e Propaganda',		'area_id' => '3' ] );
+
+		//Ciências Tecnologicas
+		App\Curso::create( [ 'descricao' => 'Arquitetura e Urbanismo',					'area_id' => '4' ] );
+		App\Curso::create( [ 'descricao' => 'Ciência da Computação',					'area_id' => '4' ] );
+		App\Curso::create( [ 'descricao' => 'Design',										'area_id' => '4' ] );
+		App\Curso::create( [ 'descricao' => 'Engenharia Ambiental e Sanitária',		'area_id' => '4' ] );
+		App\Curso::create( [ 'descricao' => 'Engenharia Biomedica',						'area_id' => '4' ] );
+		App\Curso::create( [ 'descricao' => 'Engenharia de Materiais',					'area_id' => '4' ] );
+		App\Curso::create( [ 'descricao' => 'Engenharia Química',						'area_id' => '4' ] );
+		App\Curso::create( [ 'descricao' => 'Física Médica',								'area_id' => '4' ] );
+		App\Curso::create( [ 'descricao' => 'Matemática',									'area_id' => '4' ] );
+		App\Curso::create( [ 'descricao' => 'Sistemas de Informação',					'area_id' => '4' ] );
+		App\Curso::create( [ 'descricao' => 'Tecnologia em Design de Moda',			'area_id' => '4' ] );
+		App\Curso::create( [ 'descricao' => 'Tecnologia em Jogos Digitais',			'area_id' => '4' ] );
+		App\Curso::create( [ 'descricao' => 'Tecnologia em Radiologia',				'area_id' => '4' ] );
+
 
 		
 
