@@ -72,7 +72,8 @@ class CursosTableSeeder extends Seeder
 		App\Curso::create( [ 'descricao' => 'Sistemas para Internet',					'area_id' => '4' ] );
 		App\Curso::create( [ 'descricao' => 'Teatro',										'area_id' => '3' ] );
 		App\Curso::create( [ 'descricao' => 'Terapia Ocupacional',						'area_id' => '8' ] );
-		App\Curso::create( [ 'descricao' => 'Zootecnia',									'area_id' => '2' ] );*/
+		App\Curso::create( [ 'descricao' => 'Zootecnia',									'area_id' => '2' ] );
+		App\Curso::create( [ 'descricao' => 'Indiferente',									'area_id' => '10' ] );*/
 
 
 
@@ -119,10 +120,10 @@ class CursosTableSeeder extends Seeder
 		App\Curso::create( [ 'descricao' => 'Sistemas de Informação',					'area_id' => '4' ] );
 		App\Curso::create( [ 'descricao' => 'Tecnologia em Design de Moda',			'area_id' => '4' ] );
 		App\Curso::create( [ 'descricao' => 'Tecnologia em Jogos Digitais',			'area_id' => '4' ] );
-		App\Curso::create( [ 'descricao' => 'Tecnologia em Radiologia',				'area_id' => '4' ] );
 
 
-		
+		//Indiferente
+		App\Curso::create( [ 'descricao' => 'Indiferente',									'area_id' => '5' ] );
 
     }
 }

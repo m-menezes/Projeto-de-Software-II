@@ -24,7 +24,7 @@
 					<p>{{ $registro->valor }}</p>
 				</div>
 				<div class="col s12 m3 smaller">
-					<span>Carga Horaria</span>
+					<span>Carga Horaria (semanal)</span>
 					<p>{{ $registro->carga_horaria }}</p>
 				</div>					
 				<div class="col s12 m3 smaller">

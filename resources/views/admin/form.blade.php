@@ -27,15 +27,15 @@
 				<option value="Educação Física e Desportos" {{ isset($registro->centro) && $registro->centro == 'Educação Física e Desportos' ? 'selected' : '' }}>Educação Física e Desportos</option>
 				<option value="Tecnologia" {{ isset($registro->centro) && $registro->centro == 'Tecnologia' ? 'selected' : '' }}>Tecnologia</option>
 			</select>
-			<label>Centro:</label>
+			<label>Área:</label>
 		</div>
 		<div class="input-field col s6">
 			<input type="text" name="valor" value="{{isset($registro->valor) ? $registro->valor : ''}}" >
-			<label>Valor</label>
+			<label>Remuneração (Mensal)</label>
 		</div>
 		<div class="input-field col s6">
 			<input type="text" name="carga_horaria" value="{{isset($registro->carga_horaria) ? $registro->carga_horaria : ''}}">
-			<label>Carga Horaria</label>
+			<label>Carga Horaria (Semanal)</label>
 		</div>
 	</div>
 	<div class="col s12 m4">

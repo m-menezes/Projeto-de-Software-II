@@ -21,7 +21,8 @@ class AreasTableSeeder extends Seeder
     	App\Area::create( [ 'descricao' => 'NÃO CONSTA' ] ); //6
     	App\Area::create( [ 'descricao' => 'CIÊNCIAS HUMANAS' ] ); //7
     	App\Area::create( [ 'descricao' => 'CIÊNCIAS DA SAÚDE' ] ); //8
-    	App\Area::create( [ 'descricao' => 'ENGENHARIA' ] ); //9*/
+        App\Area::create( [ 'descricao' => 'ENGENHARIA' ] ); //9
+    	App\Area::create( [ 'descricao' => 'INDIFERENTE' ] ); //10*/
 
         
         //ÁREAS UNIFRA
@@ -30,6 +31,7 @@ class AreasTableSeeder extends Seeder
         App\Area::create( [ 'descricao' => 'CIÊNCIAS HUMANAS' ] );      //2
         App\Area::create( [ 'descricao' => 'CIÊNCIAS SOCIAIS' ] );      //3
         App\Area::create( [ 'descricao' => 'CIÊNCIAS TECNOLOGICAS' ] ); //4
+        App\Area::create( [ 'descricao' => 'INDIFERENTE' ] ); //5
 
     }
 }
