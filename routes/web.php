@@ -37,6 +37,7 @@ Route::get('/postagem/{id}', [ 				'as' => 'postagem', 		'uses' => 'usuario\View
 
 //Apenas um teste =)
 Route::get('/teste', [ 							'as' => 'teste', 			'uses' => 'usuario\ViewsController@teste']);
+Route::get('/getCurses', [ 					'as' => 'getCurses',		'uses' => 'admin\OportunidadeController@getCursesByAreaId']);
 
 
 // Auth Routes

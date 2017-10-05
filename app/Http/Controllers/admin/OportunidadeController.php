@@ -6,13 +6,14 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Input;
 use App\Oportunidade;
-
+use App\Area;
 class OportunidadeController extends Controller
 {
 
 	public function index()
 	{
 		$registros = Oportunidade::orderBy('created_at', 'DESC')->get();
+		$areas = Areas::orderBy('descricao', 'ASC')->get();
 		return view('admin.index', compact( ['registros', 'areas'] ));
 	}
 
@@ -29,7 +30,8 @@ class OportunidadeController extends Controller
 
 	public function adicionar()
 	{
-        return view('admin.adicionar');
+		$areas = \App\Area::all();
+      return view('admin.adicionar', compact('areas'));
    }
 
 
@@ -97,6 +99,27 @@ class OportunidadeController extends Controller
 		return view('admin.nova_area');
 	}
 
+	public function getCursesByAreaId()
+	{
+		$cursosArray = array();
+		$areaId = Input::get('areaId');		
+		$area = Area::with('cursos')->find($areaId);
+		$cursos = $area->cursos;
+		foreach($cursos as $curso)
+		{
+			array_push($cursosArray, $curso->descricao);
+		}
+		return $cursosArray;
+		/*$areas = Area::with(['cursos' => function($query) use ($areaId) {
+   		$query->where('area_id', $areaId);
+		}])
+		->whereHas('cursos', function($query) use ($areaId) {
+    		$query->where('area_id', $areaId);
+		})->get();*/
+		//$areas  = Area::where('id', $areaId)->with('cursos')->get();
+		
+		
+	}
 
 	public function registerArea(Request $request)
 	{
