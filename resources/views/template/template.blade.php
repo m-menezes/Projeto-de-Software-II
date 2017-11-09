@@ -80,7 +80,13 @@
 	<!--Import highcharts.js-->
 	<script src="https://code.highcharts.com/highcharts.js"></script>
 	<script src="https://code.highcharts.com/modules/exporting.js"></script>
-
+	<script src="{{ asset('js/Script.js') }}"></script>
+	<script type="text/javascript">
+   	$.ajaxSetup({
+      	headers: { 'X-CSRF-Token' : $('meta[name=_token]').attr('content') }
+    	});
+	</script>
+	</script>
 	<script type="text/javascript">
 		$(".button-collapse").sideNav();
 		$('select').material_select();

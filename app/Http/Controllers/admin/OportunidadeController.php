@@ -7,13 +7,15 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Input;
 use App\Oportunidade;
 use App\Area;
+use Input;
+
 class OportunidadeController extends Controller
 {
 
 	public function index()
 	{
 		$registros = Oportunidade::orderBy('created_at', 'DESC')->get();
-		$areas = Areas::orderBy('descricao', 'ASC')->get();
+		$areas = Area::orderBy('descricao', 'ASC')->get();
 		return view('admin.index', compact( ['registros', 'areas'] ));
 	}
 
@@ -148,8 +150,7 @@ class OportunidadeController extends Controller
 	}	
 
 
-	public function registerCurso(Request $request)
-	{
+	public function registerCurso(Request $request) {
 		$rules = array(
 		   'cursoName'  => 'required|alpha_spaces|min:5',
 		);
@@ -166,5 +167,10 @@ class OportunidadeController extends Controller
                 
 		$curso->save();
 		return redirect()->route('home');
+	}
+
+	public function getOpportunitiesByText(Request $request)	{
+		//Oportunidade::updateOpportunitiesByText( Input:get('searchString') );
+		dd($request);
 	}
 }

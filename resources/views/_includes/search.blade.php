@@ -8,11 +8,11 @@
 			<form class="col s12">
 				<div class="row">
 					<div class="input-field col s12">
-						<input id="input_text" type="text">
+						<input class="search_string" id="input_text" type="text">
 						<label for="input_text">Busca</label>
 					</div>
 					<div class="input-field col s6">
-						<select name="area_id">
+						<select name="area_id" id="opportunities_list">
 							@foreach($areas as $area)
 								<option value="{{ $area->id }}">{{ $area->descricao }}</option>
 							@endforeach
@@ -21,9 +21,28 @@
 					</div>
 				</div>
 			</form>
-			<div class="margin_bottom_large col s12 btn azul-3">
-				Buscar
-			</div>
+			<button id="searchButton" class="btn-buscar col s12 btn azul-3 btn waves-effect waves-light" type="submit" name="action">Buscar	
+		  	</button>			
 		</div>
 	</div>
 </div>
+
+@section ('script')
+	//Change opportunities list on dropdown change
+	$('#searchButton').click(function(e){
+		e.preventDefault();
+		//Get string 
+		var string = $('.search_string').val();
+
+		//Ajax to bring data related to the selected area of knowledge
+		 $.ajax({
+		 	method: 'POST',
+		 	url: ' {{ route('getOpportunitiesByText') }} ', //Trazer disciplinas
+		 	data: { searchString: string },
+		 	success: function(data){
+		 		alert('SUCCESS  :) ');
+		 	}
+		 });
+	});
+
+@stop

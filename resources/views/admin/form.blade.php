@@ -34,9 +34,9 @@
 			<label>Área:</label>
 			
 			<div class="input-field col s12">
-				<div div="cursosList" class="chips chips-initial">
-				
-				</div>
+				<div div="cursosList" class="chips chips-initial">				
+
+				</div>				
 			</div>
 
 			<div class="input-field col s6">
@@ -89,8 +89,8 @@ $(document).ready(function() {
 				$(".chips").html(""); //clear content
 				cursos.forEach(function(entry){
 
-					$(".chips").append("<div class='chip'>"+entry+"<i class='close material-icons'>close</i></div>");					
-				});
+					$(".chips").append("<div class='chip'>"+entry+"<i class='close material-icons'>close</i></div>");
+				});				
 			},
 			error: function(){
 				//What if things go wrong ?

@@ -31,18 +31,20 @@ Route::group(['middleware' => 'auth' ], function(){
 });
 
 // View's Routes
-Route::get('/', [ 							'as' => 'home', 			'uses' => 'usuario\ViewsController@home']);
-Route::get('/sobre', [ 						'as' => 'sobre', 			'uses' => 'usuario\ViewsController@sobre']);
-Route::get('/postagem/{id}', [ 				'as' => 'postagem', 		'uses' => 'usuario\ViewsController@postagem']);
+Route::get('/', [ 							'as'    => 'home', 			'uses' => 'usuario\ViewsController@home']);
+Route::get('/sobre', [ 						'as'    => 'sobre', 			'uses' => 'usuario\ViewsController@sobre']);
+Route::get('/postagem/{id}', [ 			'as'    => 'postagem', 		'uses' => 'usuario\ViewsController@postagem']);
 
 //Apenas um teste =)
 Route::get('/teste', [ 							'as' => 'teste', 			'uses' => 'usuario\ViewsController@teste']);
 Route::get('/getCurses', [ 					'as' => 'getCurses',		'uses' => 'admin\OportunidadeController@getCursesByAreaId']);
 
+//Ajax URLs
+Route::get('getOpportunitiesByText', [ 'as' => 'getOpportunitiesByText', 'uses' => 'admin\OportunidadeController@getOpportunitiesByText']);
 
 // Auth Routes
-Route::get('/login',[						'as' => 'login', 			'uses' => 'Auth\LoginController@showLogin']);
-Route::get('/logout', [						'as' => 'logout', 			'uses' => 'Auth\LoginController@logout']);
-Route::post('/doLogin',[					'as' => 'doLogin', 			'uses' => 'Auth\LoginController@doLogin']);
-Route::get('/registerUser', [ 				'as' => 'register', 		'uses' => 'Auth\LoginController@register']);
-Route::post('/registerUser', [ 				'as' => 'registerUser', 	'uses' => 'Auth\LoginController@registerUser']);
+Route::get('/login',[						'as'    => 'login', 			'uses' => 'Auth\LoginController@showLogin']);
+Route::get('/logout', [						'as'    => 'logout', 		'uses' => 'Auth\LoginController@logout']);
+Route::post('/doLogin',[					'as'    => 'doLogin', 		'uses' => 'Auth\LoginController@doLogin']);
+Route::get('/registerUser', [ 			'as'    => 'register', 		'uses' => 'Auth\LoginController@register']);
+Route::post('/registerUser', [ 			'as'    => 'registerUser', 'uses' => 'Auth\LoginController@registerUser']);
