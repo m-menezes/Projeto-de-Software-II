@@ -169,9 +169,9 @@ class OportunidadeController extends Controller
 		return redirect()->route('home');
 	}
 
-	public static function getOpportunitiesByText(Request $request)	{
+	public function getOpportunitiesByText(Request $request)	{
 		$searchString = $request->input('searchString');
-		$opts         = Oportunidade::updateOpportunitiesByText($searchString)->get();
-
+		$opts = Oportunidade::updateOpportunitiesByText($searchString);
+		return $opts;
 	}
 }

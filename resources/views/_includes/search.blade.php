@@ -12,7 +12,7 @@
 						<label for="input_text">Busca</label>
 					</div>
 					<div class="input-field col s6">
-						<select name="area_id" id="opportunities_list">
+						<select class="search_string" name="area_id" id="opportunities_list">
 							@foreach($areas as $area)
 								<option value="{{ $area->id }}">{{ $area->descricao }}</option>
 							@endforeach
@@ -29,6 +29,7 @@
 
 @section ('script')
 	//Change opportunities list on dropdown change
+	// Add LI : https://www.w3schools.com/jsref/met_node_appendchild.asp
 	$('#searchButton').click(function(e){
 		var _token = $('input[name="_token"]').val();
 		e.preventDefault();
