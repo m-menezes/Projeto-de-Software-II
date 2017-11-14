@@ -5,10 +5,11 @@
 			<h5>Localizar Oportunidade</h5>
 		</div>
 		<div class="m_borda busca col s12">
-			<form class="col s12">
-				<div class="row">
+			<form action="{{ route('getOpportunitiesByText') }}" method="POST" class="col s12">
+			<input type="hidden" name="_token" value="{{ csrf_token() }}">
+				<div class="row">					
 					<div class="input-field col s12">
-						<input class="search_string" id="input_text" type="text">
+						<input class="search_string" id="input_text" name="searchString" type="text">
 						<label for="input_text">Busca</label>
 					</div>
 					<div class="input-field col s6">
@@ -20,9 +21,10 @@
 						<label for="input_text">Area de Conhecimento</label>
 					</div>
 				</div>
-			</form>
+
 			<button id="searchButton" class="btn-buscar col s12 btn azul-3 btn waves-effect waves-light" type="submit" name="action">Buscar	
 		  	</button>			
+			</form>
 		</div>
 	</div>
 </div>
@@ -30,7 +32,7 @@
 @section ('script')
 	//Change opportunities list on dropdown change
 	// Add LI : https://www.w3schools.com/jsref/met_node_appendchild.asp
-	$('#searchButton').click(function(e){
+{{-- 	$('#searchButton').click(function(e){
 		var _token = $('input[name="_token"]').val();
 		e.preventDefault();
 		//Get string 
@@ -46,6 +48,6 @@
 		 		alert('SUCCESS');
 		 	}
 		 });
-	});
+	}); --}}
 
 @stop

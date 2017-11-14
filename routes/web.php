@@ -31,7 +31,8 @@ Route::group(['middleware' => 'auth' ], function(){
 });
 
 // View's Routes
-Route::get('/', [ 							'as'    => 'home', 			'uses' => 'usuario\ViewsController@home']);
+Route::get('/',  [ 							'as'    => 'home', 			'uses' => 'usuario\ViewsController@home']);
+Route::post('/', [  'as'    => 'getOpportunitiesByText',		'uses' => 'usuario\ViewsController@getOportunidadesByText']);
 Route::get('/sobre', [ 						'as'    => 'sobre', 			'uses' => 'usuario\ViewsController@sobre']);
 Route::get('/postagem/{id}', [ 			'as'    => 'postagem', 		'uses' => 'usuario\ViewsController@postagem']);
 
@@ -40,7 +41,7 @@ Route::get('/teste', [ 							'as' => 'teste', 			'uses' => 'usuario\ViewsContro
 Route::get('/getCurses', [ 					'as' => 'getCurses',		'uses' => 'admin\OportunidadeController@getCursesByAreaId']);
 
 //Ajax URLs
-Route::post('getOpportunitiesByText', [ 'as' => 'getOpportunitiesByText', 'uses' => 'admin\OportunidadeController@getOpportunitiesByText']);
+//Route::post('getOpportunitiesByText', [ 'as' => 'getOpportunitiesByText', 'uses' => 'admin\OportunidadeController@getOpportunitiesByText']);
 
 // Auth Routes
 Route::get('/login',[						'as'    => 'login', 			'uses' => 'Auth\LoginController@showLogin']);

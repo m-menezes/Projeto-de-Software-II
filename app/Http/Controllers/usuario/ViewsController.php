@@ -16,6 +16,13 @@ class ViewsController extends Controller
 		return view('index', compact(['registros', 'areas']));
 	}
 
+	public function getOportunidadesByText(Request $request) {
+		$search = $request->input('searchString');
+		$registros = Oportunidade::where('descricao', 'like', '%' .$search . '%')->get();
+		$areas     = \App\Area::orderBy('descricao', 'asc')->get();
+		return view('index', compact(['registros', 'areas']));	
+	}
+
 	public function teste()
 	{
 		$areas = Area::with('cursos')->get();

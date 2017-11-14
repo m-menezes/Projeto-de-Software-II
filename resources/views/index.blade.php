@@ -7,6 +7,7 @@
 	<div class="row">
 		<div class="container">
 			<div class="postagens">
+
 				@foreach($registros as $registro)
 				@if($registro->publicado == 'sim')
 				<div class="col s12 blue-grey lighten-5 border_lighten postagem">
@@ -40,6 +41,7 @@
 				</div>
 				@endif
 				@endforeach
+				
 			</div>	
 		</div>
 	</div>

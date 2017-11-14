@@ -10,8 +10,11 @@ class Oportunidade extends Model
         'titulo', 'descricao', 'publicado', 'email', 'carga_horaria', 'valor', 'criado', 'centro',
     ];
 
+   /**
+	* Recebe uma string e traz todas as oportunidades que contenham aquela string
+	*/
     public static function updateOpportunitiesByText($search)	{
     	$result = Oportunidade::where('descricao', 'like', '%' .$search . '%')->get();
     	return $result;
-    }
+    }   
 }
