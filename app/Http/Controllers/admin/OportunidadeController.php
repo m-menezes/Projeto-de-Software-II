@@ -7,7 +7,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Input;
 use App\Oportunidade;
 use App\Area;
-use Input;
+
 
 class OportunidadeController extends Controller
 {
@@ -169,8 +169,9 @@ class OportunidadeController extends Controller
 		return redirect()->route('home');
 	}
 
-	public function getOpportunitiesByText(Request $request)	{
-		//Oportunidade::updateOpportunitiesByText( Input:get('searchString') );
-		dd($request);
+	public static function getOpportunitiesByText(Request $request)	{
+		$searchString = $request->input('searchString');
+		$opts         = Oportunidade::updateOpportunitiesByText($searchString)->get();
+
 	}
 }

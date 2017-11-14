@@ -30,6 +30,7 @@
 @section ('script')
 	//Change opportunities list on dropdown change
 	$('#searchButton').click(function(e){
+		var _token = $('input[name="_token"]').val();
 		e.preventDefault();
 		//Get string 
 		var string = $('.search_string').val();
@@ -38,9 +39,10 @@
 		 $.ajax({
 		 	method: 'POST',
 		 	url: ' {{ route('getOpportunitiesByText') }} ', //Trazer disciplinas
-		 	data: { searchString: string },
+		 	data: { _token : _token, searchString: string },
 		 	success: function(data){
-		 		alert('SUCCESS  :) ');
+		 		console.log(data);
+		 		alert('SUCCESS');
 		 	}
 		 });
 	});

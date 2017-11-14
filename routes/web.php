@@ -40,7 +40,7 @@ Route::get('/teste', [ 							'as' => 'teste', 			'uses' => 'usuario\ViewsContro
 Route::get('/getCurses', [ 					'as' => 'getCurses',		'uses' => 'admin\OportunidadeController@getCursesByAreaId']);
 
 //Ajax URLs
-Route::get('getOpportunitiesByText', [ 'as' => 'getOpportunitiesByText', 'uses' => 'admin\OportunidadeController@getOpportunitiesByText']);
+Route::post('getOpportunitiesByText', [ 'as' => 'getOpportunitiesByText', 'uses' => 'admin\OportunidadeController@getOpportunitiesByText']);
 
 // Auth Routes
 Route::get('/login',[						'as'    => 'login', 			'uses' => 'Auth\LoginController@showLogin']);
