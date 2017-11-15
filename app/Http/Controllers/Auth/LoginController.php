@@ -2,12 +2,12 @@
 
 namespace App\Http\Controllers\Auth;
 
-use App\User;
-use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Input;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Input;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use App\User;
 
 
 class LoginController extends Controller
@@ -57,7 +57,7 @@ class LoginController extends Controller
         $password       = $request['password'];
 
         if ( Auth::attempt(['email' => $email, 'password' => $password]) )
-            return redirect()->route('home');
+            return redirect()->route('admin.index');
         return redirect()->back(); 
     }
 
@@ -84,20 +84,23 @@ class LoginController extends Controller
                 
 
         $usr = new User();
-        $usr->name = strtoupper($request['userName']);
-        $usr->email = $request['email'];        
-
+        $usr->name = $request['userName'];
+        $usr->email = $request['email'];
+        $file = $request->file('foto');
+        if($file != NULL){
+            $storagePath = storage_path().'/app/public/fotos/';
+            $fileName = time(). '.' .$file->getClientOriginalExtension();
+            $file->move($storagePath, $fileName);
+            $usr->foto = $fileName;
+        }       
         $usr->password = \Hash::make( $request['password'] );
 
                 
         $usr->save();
         return redirect()->route('home');
-
-
     }
 
-    public function logout()
-    {
+    public function logout(){
         Auth::logout();
         return redirect()->route('home');
     }

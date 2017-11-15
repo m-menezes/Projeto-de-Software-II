@@ -1,66 +1,72 @@
 @extends('template.template')
-
+<meta name="csrf-token" content="{{ csrf_token() }}">
 @section('conteudo')
 <div class="row nomargin azul-3">
 	@include('_includes.admin_painel')
 	<div class="col s12 m10 white admin" >
 		<div class="margin_huge">
-			<div class="estatistica margin_bottom_huge" >
+            <div class="card-panel">
 				<div id="estatistica" height="30px"></div>
 			</div>
 			<div class="postagens">
 				<div class="row">
 					@foreach($registros as $registro)
-					<div class="col s12 blue-grey lighten-5 border_lighten postagem">
-						<div class="col s12 m12 padding_normal">
-							<div class="col s12 m5">
-								<div class="admin_normal">
-									<h5>{{ $registro->titulo }}</h5>
-									<p>{{ str_limit($registro->descricao, $limit = 200, $end = '...')}}</p>
-								</div>
-							</div>
-							<div class="col s12 m7">
-								<div class="col s12 m6">
-									<p class="admin_small margin_bottom_small ">
-										<span>Carga Horária: </span>
-										{{$registro->carga_horaria}} Horas
-									</p>
-									<p class="admin_small margin_bottom_small margin_top_small">
-										<span>Valor: </span>
-										R$ {{$registro->valor}}
-									</p>
-									<p class="admin_small margin_bottom_small margin_top_small">
-										<span>Email: </span>
-										{{$registro->email}}
-									</p>
-								</div>
-								<div class="col s12 m6">
-									<p class="admin_small margin_bottom_small">
-										<span>Data de Publicação:</span>
-										{{$registro->created_at->format('H:i - d/m/Y')}}
-									</p>
-									<p class="admin_small margin_bottom_small margin_top_small">
-										<span>Data de Atualização:</span>
-										{{$registro->updated_at->format('H:i - d/m/Y')}}
-									</p>
-								</div>
-							</div>
-							<div class="col s12 m12 margin_top_normal margin_bottom_normal">
-								<div class="col s12 m4">
-									@if($registro->publicado == 'sim')
-									<a id="publicado{{$registro->id}}" class="btn azul-1 col s12" href="javascript:altera_status({{$registro->id}})">Publicado</a>
-									@else
-									<a id="publicado{{$registro->id}}" class="btn cinza-3 col s12" href="javascript:altera_status({{$registro->id}})">Não Publicado</a>
-									@endif
-								</div>
-								<div class="col s12 m4">
-									<a class="btn azul-3 col s12" href="{{route('admin.editar', $registro->id)}}"">Editar</a>
-								</div>
-								<div class="col s12 m4">
-									<a class="btn blue-grey col s12" href="{{route('admin.deletar', $registro->id)}}"">Deletar</a>
-								</div>
-							</div>
-						</div>
+                    <div class="card-panel">
+    					<div class="row">
+    							<div class="col s12 m4">
+    								<div class="admin_normal">
+    									<h5>{{ str_limit($registro->titulo, $limit = 50, $end = '...') }}</h5>
+    									<p>{{ str_limit($registro->descricao, $limit = 200, $end = '...')}}</p>
+    								</div>
+    							</div>
+    							<div class="col s12 m8">
+                                    <div class="col s12 m4">
+    									<p class="admin_small">
+    										<span>Email: </span>
+    										{{$registro->email_contato}}
+    									</p>
+                                        <p class="admin_small">
+                                            <span>Edital:</span>
+                                            {{$registro->edital}}
+                                        </p>
+                                    </div>
+                                    <div class="col s12 m4">
+                                        <p class="admin_small ">
+                                            <span>Carga Horária:</span>
+                                            {{$registro->carga_horaria}} Horas
+                                        </p>
+                                        <p class="admin_small">
+                                            <span>Valor: </span>
+                                            R$ {{$registro->remuneracao}}
+                                        </p>
+    								</div>
+    								<div class="col s12 m4">
+    									<p class="admin_small">
+    										<span>Data de Publicação:</span>
+    										{{$registro->created_at->format('H:i - d/m/Y')}}
+                                        </p>
+                                        <p class="admin_small">
+    										<span>Data de Atualização:</span>
+    										{{$registro->updated_at->format('H:i - d/m/Y')}}
+    									</p>
+    								</div>
+    							</div>
+    							<div class="col s12 m12 margin_top_normal">
+    								<div class="col s12 m4">
+    									@if($registro->publicado == 'sim')
+    									<a id="publicado{{$registro->id}}" class="btn azul-1 col s12" href="javascript:altera_status({{$registro->id}})">Publicado</a>
+    									@else
+    									<a id="publicado{{$registro->id}}" class="btn cinza-3 col s12" href="javascript:altera_status({{$registro->id}})">Não Publicado</a>
+    									@endif
+    								</div>
+    								<div class="col s12 m4">
+    									<a class="btn azul-3 col s12" href="{{route('admin.editar', $registro->id)}}">Editar</a>
+    								</div>
+    								<div class="col s12 m4">
+                                        <a class="btn blue-grey col s12" href="javascript:deletar({{$registro->id}})">Deletar</a>
+    								</div>
+    							</div>
+    						</div>
 					</div>
 					@endforeach
 				</div>	
@@ -71,7 +77,6 @@
 @endsection
 
 @section('script')
-
 loadchart();
 <!-- BUSCA NO BANCO OS DADOS PARA O CHART -->
 function loadchart(){
@@ -85,6 +90,20 @@ function loadchart(){
             console.log('Erro Gráfico');
         },
     });
+}
+<!-- FUNCTION DELETE APENAS USER AUTH -->
+function deletar(idOport){
+    $.ajax({
+        type:"POST",
+        url:"{{route('admin.deletar')}}",
+        data: {id : idOport},  
+        success: function(retorno) {
+            location.reload();
+        },
+        error: function(retorno){
+            console.log(retorno);
+        },
+    });       
 }
 
 <!-- CRIA CHART -->
