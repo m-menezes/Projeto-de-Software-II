@@ -12,7 +12,7 @@
 					{{ csrf_field() }}
 					@include('admin.form')
 					<div class="row">
-						<button class="btn right">Salvar</button>
+						<button class="btn azul-1 right">Salvar</button>
 					</div>
 				</form>
 			</div>

@@ -5,7 +5,8 @@
 
 <div class="row">
 	<div class="container">
-		<div class="col s12 m12 margin_top_huge margin_bottom_huge">
+			<iframe src="https://docs.google.com/forms/d/e/1FAIpQLScwSzdd76DLe9Nlq4SCBeuekfCRWjZzIlCKMEPTBR0UxFVA9Q/viewform?embedded=true"  width="900" height="1800" frameborder="0" marginheight="0" marginwidth="0">Carregando…</iframe>
+		<!-- <div class="col s12 m12 margin_top_huge margin_bottom_huge">
 			<div class="sobre">
 				<h5>Sobre</h5>
 				<p>
@@ -18,7 +19,7 @@
 				Alunos: <span>Alan Naidon, Marcelo Menezes</span>
 			</p>
 		</div>
-	</div>
+	</div> -->
 </div>
 </div>
 <!-- CONTEUDO INTERNO SITE -->

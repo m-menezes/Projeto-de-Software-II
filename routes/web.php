@@ -15,36 +15,36 @@
 // Pages that NEED authentication to be accessed
 Route::group(['middleware' => 'auth' ], function(){
 	// Admin's Routes
-	Route::get('/admin', [ 					'as' => 'admin.index', 		'uses' => 'admin\OportunidadeController@index' ]);
-	Route::get('/admin/adicionar/postagem',['as' => 'admin.adicionar', 	'uses' => 'admin\OportunidadeController@adicionar']);
-	Route::get('/admin/editar/{id}', [ 		'as' => 'admin.editar', 	'uses' => 'admin\OportunidadeController@editar']);
-	Route::put('/admin/atualizar/{id}', [ 	'as' => 'admin.atualizar',	'uses' => 'admin\OportunidadeController@atualizar']);
-	Route::put('/admin/deletarArquivo', [ 	'as' => 'deletarArquivo',	'uses' => 'admin\OportunidadeController@deletarArquivo']);
-	Route::post('/admin/deletar', [			'as' => 'admin.deletar',	'uses' => 'admin\OportunidadeController@deletar']);
-	Route::get('/admin/loadchart', [		'as' => 'admin.loadchart', 	'uses' => 'admin\OportunidadeController@loadchart' ]);
-	Route::get('/admin/publicado', [		'as' => 'admin.publicado', 	'uses' => 'admin\OportunidadeController@publicado']);
-	Route::post('/admin/salvar', [			'as' => 'admin.salvar', 	'uses' => 'admin\OportunidadeController@salvar']);
+	Route::get('/loadchart', [				'as' => 'admin.loadchart', 	'uses' => 'admin\OportunidadeController@loadchart' ]);
+	Route::get('/administrator', [ 			'as' => 'admin.index', 		'uses' => 'admin\OportunidadeController@index' ]);
+	Route::get('/postagem/adicionar',[		'as' => 'admin.adicionar', 	'uses' => 'admin\OportunidadeController@adicionar']);
+	Route::get('/postagem/editar/{id}', [ 	'as' => 'admin.editar', 	'uses' => 'admin\OportunidadeController@editar']);
+	Route::put('/postagem/atualizar/{id}', ['as' => 'admin.atualizar',	'uses' => 'admin\OportunidadeController@atualizar']);
+	Route::put('/postagem/deletarArquivo', ['as' => 'deletarArquivo',	'uses' => 'admin\OportunidadeController@deletarArquivo']);
+	Route::get('/postagem/deletar/{id}', [	'as' => 'admin.deletar',	'uses' => 'admin\OportunidadeController@deletar']);
+	Route::get('/postagem/publicado', [		'as' => 'admin.publicado', 	'uses' => 'admin\OportunidadeController@publicado']);
+	Route::post('/postagem/save', [			'as' => 'admin.salvar', 	'uses' => 'admin\OportunidadeController@salvar']);
 
 
-	Route::get('/admin/adicionar/areas', [	'as' => 'admin.novaArea', 	'uses' => 'admin\OportunidadeController@novaArea']);
-	Route::post('/registerArea', [ 			'as' => 'registerArea', 	'uses' => 'admin\OportunidadeController@registerArea']);
-	Route::get('/deletarArea/{id}',	 [		'as' => 'deletarArea',		'uses' => 'admin\OportunidadeController@deletarArea']);
-	Route::get('/editarArea',	 [			'as' => 'editarArea',		'uses' => 'admin\OportunidadeController@editarArea']);
-	Route::get('/updateArea/{id}',	 [		'as' => 'updateArea',		'uses' => 'admin\OportunidadeController@updateArea']);
+	Route::get('/area/adicionar', [			'as' => 'admin.novaArea', 	'uses' => 'admin\OportunidadeController@novaArea']);
+	Route::get('/area/deletar/{id}',[		'as' => 'deletarArea',		'uses' => 'admin\OportunidadeController@deletarArea']);
+	Route::get('/area/editar',	 [			'as' => 'editarArea',		'uses' => 'admin\OportunidadeController@editarArea']);
+	Route::get('/area/atualizar/{id}',[		'as' => 'updateArea',		'uses' => 'admin\OportunidadeController@updateArea']);
+	Route::post('/area/registrar', [ 		'as' => 'registerArea', 	'uses' => 'admin\OportunidadeController@registerArea']);
 	
-	Route::get('/admin/adicionar/cursos', [ 'as' => 'admin.novoCurso', 	'uses' => 'admin\OportunidadeController@novoCurso']);
-	Route::post('/registerCurso', [ 		'as' => 'registerCurso', 	'uses' => 'admin\OportunidadeController@registerCurso']);
-	Route::get('/deletarCurso/{id}',[		'as' => 'deletarCurso',		'uses' => 'admin\OportunidadeController@deletarCurso']);
-	Route::get('/editarCurso',	 [			'as' => 'editarCurso',		'uses' => 'admin\OportunidadeController@editarCurso']);
-	Route::get('/updateCurso/{id}',	 [		'as' => 'updateCurso',		'uses' => 'admin\OportunidadeController@updateCurso']);
+	Route::get('/curso/adicionar', [ 		'as' => 'admin.novoCurso', 	'uses' => 'admin\OportunidadeController@novoCurso']);
+	Route::get('/curso/deletar/{id}',[		'as' => 'deletarCurso',		'uses' => 'admin\OportunidadeController@deletarCurso']);
+	Route::get('/curso/editar',	 [			'as' => 'editarCurso',		'uses' => 'admin\OportunidadeController@editarCurso']);
+	Route::get('/curso/atualizar/{id}',[	'as' => 'updateCurso',		'uses' => 'admin\OportunidadeController@updateCurso']);
+	Route::post('/curso/registrar', [ 		'as' => 'registerCurso', 	'uses' => 'admin\OportunidadeController@registerCurso']);
 
 	//Edit Password
-	Route::get('/atualizar-senha', [		'as' => 'edit_pass', 		'uses' => 'usuario\ViewsController@edit_pass']);
-	Route::post('/atualizar-senha/update', ['as' => 'edit_pass.update',	'uses' => 'usuario\ViewsController@edit_pass_update']);
+	Route::get('/atualizar/senha', [		'as' => 'edit_pass', 		'uses' => 'usuario\ViewsController@edit_pass']);
+	Route::post('/atualizar/senha/update', ['as' => 'edit_pass.update',	'uses' => 'usuario\ViewsController@edit_pass_update']);
 
 	//Edit Name/Email
-	Route::get('/atualizar-cadastro', [			'as' => 'edit_name', 		'uses' => 'usuario\ViewsController@edit_name']);
-	Route::post('/atualizar-cadastro/update', [ 'as' => 'edit_name.update',	'uses' => 'usuario\ViewsController@edit_name_update']);
+	Route::get('/atualizar/cadastro', [			'as' => 'edit_name', 		'uses' => 'usuario\ViewsController@edit_name']);
+	Route::post('/atualizar/cadastro/update', [ 'as' => 'edit_name.update',	'uses' => 'usuario\ViewsController@edit_name_update']);
 });
 
 // View's Routes

@@ -31,7 +31,7 @@
                         <label for="password">Repita Senha</label>
                     </div>
                     <div class="file-field col s12 m12 margin_left_large">
-                        <div class="btn ">
+                        <div class="btn azul-1">
                             <span>Foto</span>
                             <input type="file" name="foto" id="fileInput" accept="image/*">
                         </div>
@@ -40,7 +40,7 @@
                         </div>
                     </div>
                     <div class="input-field col s12">
-                        <button class="btn cyan waves-effect waves-light right" type="submit" name="action">Cadastrar
+                        <button class="btn azul-1 right" type="submit" name="action">Cadastrar
                             <i class="mdi-content-send right"></i>
                         </button>
                     </div>

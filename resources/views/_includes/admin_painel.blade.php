@@ -6,13 +6,13 @@
 					echo '<div class="fotoUsuario"></div>';
 				}
 				else{
-					echo '<i class="material-icons ">account_circle</i>';
+					echo '<i class="material-icons">account_circle</i>';
 				}?>
 			</div>
 		<nav>
 			<ul>
-				<li class="col s12">Nome: {{Auth::user()->name}}</li>
-				<li class="col s12">Email: {{Auth::user()->email}}</li>
+				<li class="col s12">{{Auth::user()->name}}</li>
+				<li class="col s12" id="userEmail">{{Auth::user()->email}}</li>
 				<hr>
 				<li id="painel_name">
 					<a href="{{route('edit_name')}}">Alterar Dados<i class="material-icons right">person_pin</i></a>
@@ -24,7 +24,7 @@
 			<hr>
 			<ul>
 				<li id="painel_visualizar">
-					<a href="{{route('admin.index')}}">Visualizar Postagens<i class="material-icons right">dehaze</i></a>
+					<a href="{{route('admin.index')}}">Minhas Postagens<i class="material-icons right">dehaze</i></a>
 				</li>
 				<li id="painel_add_postagem">
 					<a href="{{route('admin.adicionar')}}">Criar Postagem<i class="material-icons right">library_add</i></a>
@@ -42,6 +42,11 @@
 <style type="text/css">
 	.fotoUsuario{
 		background-image: url(/storage/app/public/fotos/<?php echo Auth::user()->foto; ?>);
+	}
+	#userEmail{
+		font-size: 1.3vh;
+		overflow: hidden;
+		height: 40px;
 	}
 </style>
 

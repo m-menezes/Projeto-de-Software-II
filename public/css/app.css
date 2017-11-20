@@ -31,10 +31,25 @@ nav{
 .cinza-3{
 	background-color: #323e44 !important;
 }
-.azul-text{
+.azul-1-text{
 	text-transform: uppercase;
-    font-weight: 600;
-    color: #053552 !important;
+	font-weight: 600;
+	color: #0e7ec1 !important;
+}
+.azul-2-text{
+	text-transform: uppercase;
+	font-weight: 600;
+	color: #005285 !important;
+}
+.azul-3-text{
+	text-transform: uppercase;
+	font-weight: 600;
+	color: #053552 !important;
+}
+.vermelho-text{
+	text-transform: uppercase;
+	font-weight: 600;
+	color: #ab0c00 !important;
 }
 /*COLOR*/
 .bold{
@@ -130,6 +145,10 @@ nav{
 	.brand-logo{
 		font-size: 4vw !important;
 	}
+	.brand-logo img{
+		display: none
+	}
+
 	.footer_copyright,
 	.footer{
 		text-align: center !important;
@@ -149,6 +168,11 @@ nav{
 /*MOBILE*/
 /*DESKTOP*/
 @media(min-width: 600px){
+	.brand-logo img{
+		width: 40px;
+		margin-right: 10px;
+		height: auto;
+	}
 	form.m_borda,
 	.m_borda{
 		border:1px solid black;
@@ -190,7 +214,7 @@ footer{
 	text-align: center;
 }
 .footer img{
-	max-width: 40%;
+	max-width: 30%;
 }
 .UFSM-logo img{
 	height: 50px;
@@ -307,6 +331,9 @@ ul.mapa_site> li > a {
 	padding: 10px  !important;
 }
 
+#userFoto{
+	text-align: center;
+}
 #userFoto i{
 	font-size: 13em;
 	height: auto;
@@ -315,8 +342,14 @@ ul.mapa_site> li > a {
 }
 
 .fotoUsuario{
+	background-size: 100% 100%;
+	background-repeat: no-repeat;
 	height: 210px;
-	width: 210px;
+	width: 100%;
 	border-radius: 50%;
 	margin:15px 0px;
+}
+.btnExcluir,
+.icons a{
+	cursor: pointer;
 }

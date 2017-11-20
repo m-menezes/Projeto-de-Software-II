@@ -1,0 +1,2 @@
+#!/bin/bash
+php artisan migrate:refresh --seed;php artisan config:clear;php artisan view:clear;php artisan cache:clear;php artisan route:clear;echo "Removendo Editais";rm -r storage/app/public/editais;echo "Removendo Fotos";rm -r storage/app/public/fotos;

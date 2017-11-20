@@ -24,7 +24,7 @@
                                 <label>Email</label>
                             </div>
                             <div class="file-field col s12 m12 margin_left_large">
-                                <div class="btn ">
+                                <div class="btn azul-1">
                                     <span>Foto do Usuario</span>
                                     <input type="file" name="foto" id="fileInput" accept="image/*" >
                                 </div>

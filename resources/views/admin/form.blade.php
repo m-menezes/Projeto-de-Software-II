@@ -58,7 +58,7 @@
 	</div>
 	<div class="col s12">
 		<div class="file-field input-field col s12 m12"">
-			<div class="btn">
+			<div class="btn azul-1">
 				<span>Arquivo</span>
 				<input type="file" name="edital" id="fileInput">
 			</div>

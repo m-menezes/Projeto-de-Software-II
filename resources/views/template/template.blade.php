@@ -1,12 +1,23 @@
 <!DOCTYPE html>
 <html lang="{{ app()->getLocale() }}">
 <head>
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-109734266-1"></script>
+	<script>
+		window.dataLayer = window.dataLayer || [];
+		function gtag(){dataLayer.push(arguments);}
+		gtag('js', new Date());
+
+		gtag('config', 'UA-109734266-1');
+	</script>
+
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>{{config('app.name')}}</title>
 	<!--Imports Font Google, Materialize e CSS Personalizado-->
 	<link href="/css/app.css" rel="stylesheet">
+	<link rel="stylesheet" href="/css/font-awesome.min.css"/>
 	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 	<link type="text/css" rel="stylesheet" href="/css/materialize.min.css"  media="screen,projection"/>
 	<!--End Imports-->
@@ -28,7 +39,7 @@
 						<div class="footer_title">
 							<p>Contato</p>
 						</div>
-						<p>Universidade Federal de Santa Maria</p>
+						<p>Email: oportunidadesufsm@gmail.com</p>
 					</div>
 					<div class="col s12 m6 footer">
 						<div class="footer_title">
@@ -90,6 +101,14 @@
 					$("#painel_visualizar").addClass('active');
 					$("#admin").addClass('active');
 					break;
+				case ('/atualizar/cadastro'):
+					$("#painel_name").addClass('active');
+					$("#admin").addClass('active');
+					break;
+				case ('/atualizar/senha'):
+					$("#painel_password").addClass('active');
+					$("#admin").addClass('active');
+					break;
 				case ('/admin/adicionar/postagem'):
 					$("#painel_add_postagem").addClass('active');
 					$("#admin").addClass('active');
@@ -117,7 +136,15 @@
 					$("#sobre").addClass('active');
 					break;
 			}
+			resizeFoto();
 		});
+
+		$(window).resize(function(){
+			resizeFoto();
+		})
+		function resizeFoto(){
+			$('.fotoUsuario').height($('.fotoUsuario').width());
+		}
 		@yield('script')
 	</script>
 </body>

@@ -7,19 +7,22 @@
 	<div class="row">
 		<div class="container">
 			<div class="postagens">
+				<?php if(count($registros) == 0){
+					echo "Sem Resultado";
+				} ?>
 				@foreach($registros as $registro)
 				<div class="row">
 					<div class="col s12 m12">
 						<div class="card cinza">
 							<div class="card-content">
 								<div class="row">
-									<div class="col m8">
+									<div class="col  s12 m8">
 										<span class="card-title admin_normal">
-										<a class="azul-text" href="{{route('postagem', $registro->id)}}">{{ $registro->titulo }}</a>
+										<a class="azul-3-text" href="{{route('postagem', $registro->id)}}">{{ $registro->titulo }}</a>
 										</span>
 										<p>{{ str_limit($registro->descricao, $limit = 200, $end = '...')}}</p>
 									</div>
-									<div class="col m4">
+									<div class="col s12 m4">
 										<div class="chip col s12 blue-grey white-text">
 											@if($registro->remuneracao)
 											Remunaração: R${{$registro->remuneracao}}
@@ -34,14 +37,17 @@
 										@endif
 										@if($registro->email_contato)
 										<div class="chip col s12 blue-grey white-text">
-											Email de Contato: {{$registro->email_contato}}
+											Contato: {{$registro->email_contato}}
 										</div>
 										@endif
 									</div>
 								</div>
 							</div>
 							<div class="card-action">
-								<a class="azul-text" href="{{route('postagem', $registro->id)}}"">Mais detalhes</a>
+								<a class="azul-3-text" href="{{route('postagem', $registro->id)}}"">Mais detalhes</a>
+								@if($registro->edital)
+								<a href="/storage{{$registro->edital_location}}" class="azul-3-text right">Baixar Edital</a>
+								@endif
 							</div>
 						</div>
 					</div>

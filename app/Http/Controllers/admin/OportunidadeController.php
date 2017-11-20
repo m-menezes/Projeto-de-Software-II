@@ -16,7 +16,7 @@ class OportunidadeController extends Controller
 
 	public function index()
 	{
-		$registros = Oportunidade::orderBy('created_at', 'DESC')->get();
+		$registros = Oportunidade::orderBy('created_at', 'DESC')->where('user_id', Auth::user()->id)->get();
 		$areas = Area::orderBy('descricao', 'ASC')->get();
 		return view('admin.index', compact( ['registros', 'areas'] ));
 	}
@@ -130,10 +130,8 @@ class OportunidadeController extends Controller
 
 
 
-	public function deletar(Request $id){
+	public function deletar($id){
 		if(Auth::check()){
-			$id = $id->all();
-			$id = $id["id"];
 			$destroy = Oportunidade::find($id);
 			if(Auth::user()->id == $destroy['user_id']){
 				if($destroy['edital_location']){

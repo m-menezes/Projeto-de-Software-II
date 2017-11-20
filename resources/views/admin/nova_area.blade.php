@@ -19,7 +19,7 @@
 						</div>
 						<div class="row">
 							<div class="input-field col s12">
-								<button class="btn waves-effect waves-light right" type="submit" name="action">Cadastrar
+								<button class="btn azul-1 right" type="submit" name="action">Cadastrar
 									<i class="mdi-content-send right"></i>
 								</button>
 							</div>
@@ -40,23 +40,23 @@
 				<table style="font-size: 13px;">
 					<thead>
 						<tr>
-							<th>ID</th>
+							<th class="hide-on-med-and-down">ID</th>
 							<th>Descricao</th>
-							<th>Data de Criação</th>
-							<th>Data de Atualização</th>
+							<th class="hide-on-med-and-down">Data de Criação</th>
+							<th class="hide-on-med-and-down">Data de Atualização</th>
 							<th>Ação</th>
 						</tr>
 					</thead>
 					<tbody>
 						@foreach($areas as $area)
 						<tr>
-							<td>{{$area['id']}}</td>
+							<td class="hide-on-med-and-down">{{$area['id']}}</td>
 							<td>{{$area['descricao']}}</td>
-							<td>{{$area['created_at']->format('d/m/Y')}}</td>
-							<td>{{$area['updated_at']->format('d/m/Y')}}</td>
+							<td class="hide-on-med-and-down">{{$area['created_at']->format('d/m/Y')}}</td>
+							<td class="hide-on-med-and-down">{{$area['updated_at']->format('d/m/Y')}}</td>
 							<td>
-								<button class="btn azul-3 btnEditar" data-id="{{$area['id']}}">Editar</button>
-								<button class="btn cinza-2 btnExcluir" data-id="{{$area['id']}}">Excluir</button>
+								<button class="btn azul-3 btnEditar col s12 m6" data-id="{{$area['id']}}">Editar</button>
+								<button class="btn cinza-2 btnExcluir col s12 m6" data-id="{{$area['id']}}">Excluir</button>
 							</td>
 						</tr>
 						@endforeach
@@ -89,7 +89,7 @@
 		<div class="row nomargin">
 			<div class="col s12">
 				<a class="btn col s12 m5 modal-close">Não</a>
-				<a class="btn col s12 m5 red right nomargin" id="btnConfirmar">Sim</a>
+				<a class="btn col s12 m5 cinza-2 right nomargin" id="btnConfirmar">Sim</a>
 			</div>
 		</div>
 	</div>
@@ -99,7 +99,7 @@
 @section('script')
 $('.btnEditar').click(function(){
 	var id = $(this).attr('data-id');
-	var par_url = "<?php echo url('/updateArea/').'/'; ?>" + id;
+	var par_url = "<?php echo url('/area/atualizar/').'/'; ?>" + id;
 	$.ajax({
         type:"GET",
         url: "{{route('editarArea')}}",
@@ -119,7 +119,7 @@ $('.btnEditar').click(function(){
   });
 $('.btnExcluir').click(function(){
 	var id = $(this).attr('data-id');
-	var par_url = "<?php echo url('/deletarArea/').'/'; ?>" + id;
+	var par_url = "<?php echo url('/area/deletar/').'/'; ?>" + id;
 	$('#modalExcluir').modal('open');
 	$('#btnConfirmar').attr('href', par_url);
   });

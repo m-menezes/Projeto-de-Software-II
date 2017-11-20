@@ -14,7 +14,7 @@
 					<input type="hidden" name="_method" value="put">
 					@include('admin.form')
 					<div class="row">
-						<button class="btn right">Atualizar</button>
+						<button class="btn azul-1 right">Atualizar</button>
 					</div>
 				</form>
 			</div>

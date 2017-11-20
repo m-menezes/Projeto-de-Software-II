@@ -29,7 +29,7 @@
 							</div>                         
 							<div class="row">
 								<div class="input-field col s12">
-									<button class="btn waves-effect waves-light right" type="submit" name="action">Cadastrar
+									<button class="btn azul-1 right" type="submit" name="action">Cadastrar
 										<i class="mdi-content-send right"></i>
 									</button>
 								</div>
@@ -51,23 +51,23 @@
 				<table style="font-size: 13px;">
 					<thead>
 						<tr>
-							<th>ID</th>
+							<th class="hide-on-med-and-down">ID</th>
 							<th>Curso</th>
-							<th>Área</th>
-							<th>Data de Criação</th>
+							<th class="hide-on-med-and-down">Área</th>
+							<th class="hide-on-med-and-down">Data de Criação</th>
 							<th>Ação</th>
 						</tr>
 					</thead>
 					<tbody>
 						@foreach($cursos as $curso)
 						<tr>
-							<td>{{$curso['id']}}</td>
+							<td class="hide-on-med-and-down">{{$curso['id']}}</td>
 							<td>{{$curso['descricao']}}</td>
-							<td>{{$curso->getAreaName()}}</td><!--Pega nome area -->
-							<td>{{$curso['created_at']->format('d/m/Y')}}</td>
+							<td class="hide-on-med-and-down">{{$curso->getAreaName()}}</td><!--Pega nome area -->
+							<td class="hide-on-med-and-down">{{$curso['created_at']->format('d/m/Y')}}</td>
 							<td>
-								<button class="btn azul-3 btnEditar" data-id="{{$curso['id']}}">Editar</button>
-								<button class="btn cinza-2 btnExcluir" data-id="{{$curso['id']}}">Excluir</button>
+								<button class="btn azul-3 btnEditar col s12 m6" data-id="{{$curso['id']}}">Editar</button>
+								<button class="btn cinza-2 btnExcluir col s12 m6" data-id="{{$curso['id']}}">Excluir</button>
 							</td>
 						</tr>
 						@endforeach
@@ -107,7 +107,7 @@
 		<div class="row nomargin">
 			<div class="col s12">
 				<a class="btn col s12 m5 modal-close">Não</a>
-				<a class="btn col s12 m5 red right nomargin" id="btnConfirmar">Sim</a>
+				<a class="btn col s12 m5 cinza-2 right nomargin" id="btnConfirmar">Sim</a>
 			</div>
 		</div>
 	</div>
@@ -117,7 +117,7 @@
 @section('script')
 $('.btnEditar').click(function(){
 	var id = $(this).attr('data-id');
-	var par_url = "<?php echo url('/updateCurso/').'/'; ?>" + id;
+	var par_url = "<?php echo url('/curso/atualizar/').'/'; ?>" + id;
 	$.ajax({
         type:"GET",
         url: "{{route('editarCurso')}}",
@@ -142,7 +142,7 @@ $('.btnEditar').click(function(){
 
 $('.btnExcluir').click(function(){
 	var id = $(this).attr('data-id');
-	var par_url = "<?php echo url('/deletarCurso/').'/'; ?>" + id;
+	var par_url = "<?php echo url('/curso/deletar/').'/'; ?>" + id;
 	$('#modalExcluir').modal('open');
 	$('#btnConfirmar').attr('href', par_url);
   });

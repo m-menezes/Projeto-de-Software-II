@@ -1,11 +1,11 @@
 <nav>
 	<div class="nav-wrapper azul-3">
 		<div class="container">
-			<a href="/" class="brand-logo">{{config('app.name')}}</a>
+			<a href="/" class="brand-logo"><img src="/img/logo-oport.png"><span>{{config('app.name')}}</span></a>
 			<a href="#" data-activates="mobile" class="button-collapse"><i class="material-icons">menu</i></a>
 			<ul class="right hide-on-med-and-down">
-				<li id="home"><a href="/">Home</a></li>
-				<li id="sobre"><a href="{{route('sobre')}}">Sobre</a></li>
+				<li id="home"><a href="/">Página Inicial</a></li>
+				<li id="sobre"><a href="{{route('sobre')}}">Formulário</a></li>
 				@guest
 				<!-- APENAS NÃO LOGADO -->
 				<li id="login"><a href="{{route('login')}}">Entrar</a></li>
@@ -16,8 +16,8 @@
 				@endguest
 			</ul>
 			<ul class="side-nav" id="mobile">
-				<li id="home"><a href="/">Home</a></li>
-				<li id="sobre"><a href="{{route('sobre')}}">Sobre</a></li>
+				<li id="home"><a href="/">Página Inicial</a></li>
+				<li id="sobre"><a href="{{route('sobre')}}">Formulário</a></li>
 				@guest
 				<!-- APENAS NÃO LOGADO -->
 				<li id="login"><a href="{{route('login')}}">Entrar</a></li>
