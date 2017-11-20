@@ -181,7 +181,7 @@ return [
         /**
          * Laravel DebugBar
          */
-        Barryvdh\Debugbar\ServiceProvider::class
+        // Barryvdh\Debugbar\ServiceProvider::class
 
     ],
 

@@ -11,7 +11,18 @@ class UsersTableSeeder extends Seeder
      */
     public function run(){
         $user = [
-          'name'=>"Teste",
+          'name'=>"Oportunidades",
+          'email'=>"oportunidadesufsm@gmail.com",
+          'password'=>bcrypt("b4ck!Nbl4ck"),
+        ];
+        if(User::where('email','=',$user['email'])->count()){
+          $usuario = User::where('email','=',$user['email'])->first();
+          $usuario->update($user);
+        }else{
+          User::create($user);
+        }
+        $user = [
+          'name'=>"teste",
           'email'=>"teste@teste.com",
           'password'=>bcrypt("teste123"),
         ];

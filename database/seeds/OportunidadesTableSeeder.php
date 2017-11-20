@@ -14,8 +14,8 @@ class OportunidadesTableSeeder extends Seeder
     	App\Oportunidade::create( [ 
     		'titulo' => 'Bolsa para a secretaria do Programa de Pós-Graduação em Ciência da computação',
     		'descricao' => 'Estão abertas as inscrições para bolsista da Secretaria Programa de Pós-Graduação em Ciência da Computação no período de 21 a 24 de agosto de 2017 até as 23h59min, devendo ser realizadas pelo endereço http://w3.ufsm.br/ppgi/bolsista/ conforme o edital.',
-    		'email_contato' => 'josmar@inf.ufsm.br',
-    		'email_criador' => 'teste@teste.com',
+    		'email_contato' => 'oportunidadesufsm@gmail.com',
+    		'email_criador' => 'oportunidadesufsm@gmail.com',
     		'carga_horaria' => '20',
     		'publicado' => 'sim',
     		'user_id' => '1',
@@ -33,8 +33,8 @@ class OportunidadesTableSeeder extends Seeder
     		Interessados enviar currículo e horários disponíveis até 25 de Agosto para <csantos@inf.ufsm.br>
 
     		Para maiores informações sobre o projeto, acesse <http://ufsm.br/gt-fende>.',
-    		'email_contato' => 'csantos@inf.ufsm.br',
-    		'email_criador' => 'teste@teste.com',
+    		'email_contato' => 'oportunidadesufsm@gmail.com',
+    		'email_criador' => 'oportunidadesufsm@gmail.com',
     		'carga_horaria' => '20',
     		'user_id' => '1',
     	] );
@@ -52,8 +52,8 @@ class OportunidadesTableSeeder extends Seeder
     		No ato da inscrição, os candidatos deverão apresentar Histórico Escolar (com índice de desempenho acadêmico) e cópia do RG. 
 
     		Valor da bolsa: R$ 250,00 (valor definido pela PRAE).' ,
-    		'email_contato' => 'rejane@inf.ufsm.br',
-    		'email_criador' => 'teste@teste.com',
+    		'email_contato' => 'oportunidadesufsm@gmail.com',
+    		'email_criador' => 'oportunidadesufsm@gmail.com',
     		'carga_horaria' => '10',
     		'publicado' => 'sim',
     		'user_id' => '1',
