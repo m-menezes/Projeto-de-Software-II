@@ -5,6 +5,10 @@ body{
 .content{
 	min-height: 70.8vh;
 }
+nav{
+	background-color: transparent !important;
+	box-shadow: unset !important;
+}
 /*COLOR*/
 .azul-1{
 	background-color: #0e7ec1 !important;
@@ -15,16 +19,42 @@ body{
 .azul-3{
 	background-color: #053552 !important;
 }
+.cinza{
+	background-color: #f1f1f1 !important;
+}
 .cinza-1{
-	background-color: #CCCCCC !important
+	background-color: #CCCCCC !important;
 }
 .cinza-2{
-	background-color: #607d8b !important
+	background-color: #607d8b !important;
 }
 .cinza-3{
-	background-color: #323e44 !important
+	background-color: #323e44 !important;
+}
+.azul-1-text{
+	text-transform: uppercase;
+	font-weight: 600;
+	color: #0e7ec1 !important;
+}
+.azul-2-text{
+	text-transform: uppercase;
+	font-weight: 600;
+	color: #005285 !important;
+}
+.azul-3-text{
+	text-transform: uppercase;
+	font-weight: 600;
+	color: #053552 !important;
+}
+.vermelho-text{
+	text-transform: uppercase;
+	font-weight: 600;
+	color: #ab0c00 !important;
 }
 /*COLOR*/
+.bold{
+	font-weight: bold;
+}
 /*MARGIN*/
 .margin_bottom_small{
 	margin-bottom: 5px;
@@ -89,6 +119,9 @@ body{
 .nomargin{
 	margin: 0px !important;
 }
+.nopadding{
+	padding: 0px !important;
+}
 /*MARGIN*/
 /*PADDING*/
 .padding_small{
@@ -112,6 +145,10 @@ body{
 	.brand-logo{
 		font-size: 4vw !important;
 	}
+	.brand-logo img{
+		display: none
+	}
+
 	.footer_copyright,
 	.footer{
 		text-align: center !important;
@@ -122,13 +159,20 @@ body{
 	.postagem{
 		text-align: center;
 	}
-	.UFSM-logo{
+	.UFSM-logo,
+	.fotoUsuario{
 		display: none;
 	}
+
 }
 /*MOBILE*/
 /*DESKTOP*/
 @media(min-width: 600px){
+	.brand-logo img{
+		width: 40px;
+		margin-right: 10px;
+		height: auto;
+	}
 	form.m_borda,
 	.m_borda{
 		border:1px solid black;
@@ -138,6 +182,7 @@ body{
 	}
 	.admin_small{
 		font-size: 1.05vw;
+		overflow: hidden;
 	}
 	.admin_small span{
 		font-weight: 600;
@@ -169,7 +214,7 @@ footer{
 	text-align: center;
 }
 .footer img{
-	max-width: 40%;
+	max-width: 30%;
 }
 .UFSM-logo img{
 	height: 50px;
@@ -215,18 +260,14 @@ ul.mapa_site> li > a {
 }
 
 /*EXIBIÇÃO ADMIN*/
+.postagens .card-panel{
+	background: #f1f1f1 !important;
+}
 .postagem span{
 	display: block;
 }
 .admin_normal.descricao{
 	text-align: justify;
-}
-.border_lighten{
-	border-left: 10px solid #053552;
-	border-right: 1px solid #053552;
-	border-bottom: 1px solid #053552;
-	border-top: 1px solid #053552;
-	margin-bottom: 20px;
 }
 .smaller span{
 	font-weight: 600;
@@ -250,8 +291,23 @@ ul.mapa_site> li > a {
 #menu > ul > li.active{
 	background: #005285 !important;
 }
-.painel> nav > ul > li{
+.painel> nav li{
 	width: 100% !important;
+	line-height: 40px;
+	height: 40px;
+}
+.painel>nav>ul i{
+	line-height: 35px !important;
+}
+.collapsible-header{
+	display: block !important;
+	line-height: 65px !important;
+	background-color: transparent !important;
+}
+.collapsible,
+.collapsible-body,
+.collapsible-header{
+	border:0px !important;
 }
 .estatistica p{
 	padding: 10px 20px;
@@ -266,4 +322,34 @@ ul.mapa_site> li > a {
 	font-size: 20px;
 	font-weight: 300;
 	padding-right: 10px;
+}
+.file-path-wrapper #postFile{
+	width: 85% !important;
+}
+.file-path-wrapper i{
+	position: absolute  !important;
+	padding: 10px  !important;
+}
+
+#userFoto{
+	text-align: center;
+}
+#userFoto i{
+	font-size: 13em;
+	height: auto;
+	line-height: 250px;
+	color: white;
+}
+
+.fotoUsuario{
+	background-size: 100% 100%;
+	background-repeat: no-repeat;
+	height: 210px;
+	width: 100%;
+	border-radius: 50%;
+	margin:15px 0px;
+}
+.btnExcluir,
+.icons a{
+	cursor: pointer;
 }

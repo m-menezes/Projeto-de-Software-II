@@ -3,59 +3,69 @@
 	<div class="col s12 m12">
 		<div class="input-field col s12">
 			<input type="text" name="titulo" required value="{{isset($registro->titulo) ? $registro->titulo : ''}}">
-			<label>Titulo</label>
+			<label>Titulo *</label>
 		</div>
 		<div class="input-field col s12">
 			<textarea id="textarea_descricao" class="materialize-textarea" name="descricao" required >{{ isset($registro->descricao) ? $registro->descricao : ''}}</textarea>
-			<label for="textarea_descricao">Descrição</label>
-		</div>
-	</div>
-	<div class="col s12 m8">
-		<div class="input-field col s12">
-			<input id="email" type="email" class="validate" name="email" required value="{{isset($registro->email) ? $registro->email : ''}}">
-            <label for="email" data-error="Email inválido" data-success="Email válido">Email</label>
-		</div>
-		<div class="input-field col s12">
-			<select  name="centro">
-				<option value="Sem Centro" {{ isset($registro->centro) && $registro->centro == 'Sem Centro' ? 'selected' : '' }}>Selecionar</option>
-				<option value="Artes e Letras" {{ isset($registro->centro) && $registro->centro == 'Artes e Letras' ? 'selected' : '' }}>Artes e Letras</option>
-				<option value="Centro de Ciências da Saúde" {{ isset($registro->centro) && $registro->centro == 'Centro de Ciências da Saúde' ? 'selected' : '' }}>Centro de Ciências da Saúde</option>
-				<option value="Centro de Ciências Sociais e Humanas" {{ isset($registro->centro) && $registro->centro == 'Centro de Ciências Sociais e Humanas' ? 'selected' : '' }}>Centro de Ciências Sociais e Humanas</option>
-				<option value="Ciências Naturais e Exatas" {{ isset($registro->centro) && $registro->centro == 'Ciências Naturais e Exatas' ? 'selected' : '' }}>Ciências Naturais e Exatas</option>
-				<option value="Ciências Rurais" {{ isset($registro->centro) && $registro->centro == 'Ciências Rurais' ? 'selected' : '' }}>Ciências Rurais</option>
-				<option value="Educação" {{ isset($registro->centro) && $registro->centro == 'Educação' ? 'selected' : '' }}>Educação</option>
-				<option value="Educação Física e Desportos" {{ isset($registro->centro) && $registro->centro == 'Educação Física e Desportos' ? 'selected' : '' }}>Educação Física e Desportos</option>
-				<option value="Tecnologia" {{ isset($registro->centro) && $registro->centro == 'Tecnologia' ? 'selected' : '' }}>Tecnologia</option>
-			</select>
-			<label>Centro:</label>
-		</div>
-		<div class="input-field col s6">
-			<input type="text" name="valor" value="{{isset($registro->valor) ? $registro->valor : ''}}" >
-			<label>Valor</label>
-		</div>
-		<div class="input-field col s6">
-			<input type="text" name="carga_horaria" value="{{isset($registro->carga_horaria) ? $registro->carga_horaria : ''}}">
-			<label>Carga Horaria</label>
+			<label for="textarea_descricao">Descrição *</label>
 		</div>
 	</div>
 	<div class="col s12 m4">
 		<div class="input-field col s12">
-			<input type="text" disabled name="criado" value="{{isset($registro->criado) ? $registro->criado : 'Auth::user()->name'}}">
-			<label>Criado por: </label>
+			<input id="email" type="email" class="validate" name="email_contato" required value="{{isset($registro->email_contato) ? $registro->email_contato : ''}}">
+			<label for="email" data-error="Email inválido" data-success="Email válido">Email de Contato *</label>
+		</div>
+		<div class="input-field col s6">
+			<input id="remuneracao" type="number" name="remuneracao" value="{{isset($registro->remuneracao) ? $registro->remuneracao : ''}}" >
+			<label>Remuneração</label>
+		</div>
+		<div class="input-field col s6">
+			<input id="carga_horaria" type="number" name="carga_horaria" value="{{isset($registro->carga_horaria) ? $registro->carga_horaria : ''}}">
+			<label>Carga Horaria</label>
+		</div>
+	</div>
+	<div class="col s12 m4">
+
+		<div class="input-field col s12">
+			<select name="area">
+				<option value="">Selecione</option>
+				@foreach($areas as $area)
+				<option value="{{ $area->descricao }}" {{ isset($registro->area) && $registro->area == $area->descricao ? 'selected' : '' }}>{{ $area->descricao }}</option>
+				@endforeach
+			</select>
+			<label for="input_text">Área de Atuação</label>
 		</div>
 		<div class="input-field col s12">
+			<select name="local">
+				<option value="">Selecione</option>
+				@foreach($cursos as $curso)
+				<option value="{{ $curso->descricao }}" {{ isset($registro->local) && $registro->local == $curso->descricao ? 'selected' : '' }}>{{ $curso->descricao }}</option>
+				@endforeach
+			</select>
+			<label for="input_text">Local</label>
+		</div>
+	</div>
+	<div class="col s12 m4">
+		<div class="input-field col s12 m7">
 			<input type="text" disabled name="data" value="{{isset($registro->created_at) ? $registro->created_at : $dt->format('d/m/Y')}}">
 			<label>Data de criação: </label>
 		</div>
-		<div class="col s12 m4">
-			<input type="checkbox" class="filled-in" id="publicado" value="true" name="publicado" {{ isset($registro->publicado) && $registro->publicado == 'sim' ? 'checked' : '' }} />
+		<div class="col s12 m5">
+			<br>
+			<input type="checkbox"  id="publicado" value="true" name="publicado" {{ isset($registro->publicado) && $registro->publicado == 'sim' ? 'checked' : '' }} />
 			<label for="publicado">Publicado</label>
 		</div>
 	</div>
+	<div class="col s12">
+		<div class="file-field input-field col s12 m12"">
+			<div class="btn azul-1">
+				<span>Arquivo</span>
+				<input type="file" name="edital" id="fileInput">
+			</div>
+			<div class="file-path-wrapper">
+				<input class="file-path validate" id="postFile" type="text" value="{{isset($registro->edital) ? $registro->edital : '' }}" placeholder="Tamanho maximo do arquivo.: 2Mb">
+				<a href="" id="btnClear">Limpar<i class="material-icons">clear</i></a>
+			</div>
+		</div>
+	</div>
 </div>
-
-@section('script')
-$(document).ready(function() {
-	$('#textarea_descricao').trigger('autoresize');
-});
-@endsection('script')

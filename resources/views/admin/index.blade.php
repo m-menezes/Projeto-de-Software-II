@@ -1,77 +1,94 @@
 @extends('template.template')
-
+<meta name="csrf-token" content="{{ csrf_token() }}">
 @section('conteudo')
 <div class="row nomargin azul-3">
 	@include('_includes.admin_painel')
 	<div class="col s12 m10 white admin" >
 		<div class="margin_huge">
-			<div class="estatistica margin_bottom_huge" >
-				<div id="estatistica" height="30px"></div>
-			</div>
-			<div class="postagens">
-				<div class="row">
-					@foreach($registros as $registro)
-					<div class="col s12 blue-grey lighten-5 border_lighten postagem">
-						<div class="col s12 m12 padding_normal">
-							<div class="col s12 m5">
-								<div class="admin_normal">
-									<h5>{{ $registro->titulo }}</h5>
-									<p>{{ str_limit($registro->descricao, $limit = 200, $end = '...')}}</p>
-								</div>
-							</div>
-							<div class="col s12 m7">
-								<div class="col s12 m6">
-									<p class="admin_small margin_bottom_small ">
-										<span>Carga Horária: </span>
-										{{$registro->carga_horaria}} Horas
-									</p>
-									<p class="admin_small margin_bottom_small margin_top_small">
-										<span>Valor: </span>
-										R$ {{$registro->valor}}
-									</p>
-									<p class="admin_small margin_bottom_small margin_top_small">
-										<span>Email: </span>
-										{{$registro->email}}
-									</p>
-								</div>
-								<div class="col s12 m6">
-									<p class="admin_small margin_bottom_small">
-										<span>Data de Publicação:</span>
-										{{$registro->created_at->format('H:i - d/m/Y')}}
-									</p>
-									<p class="admin_small margin_bottom_small margin_top_small">
-										<span>Data de Atualização:</span>
-										{{$registro->updated_at->format('H:i - d/m/Y')}}
-									</p>
-								</div>
-							</div>
-							<div class="col s12 m12 margin_top_normal margin_bottom_normal">
-								<div class="col s12 m4">
-									@if($registro->publicado == 'sim')
-									<a id="publicado{{$registro->id}}" class="btn azul-1 col s12" href="javascript:altera_status({{$registro->id}})">Publicado</a>
-									@else
-									<a id="publicado{{$registro->id}}" class="btn cinza-3 col s12" href="javascript:altera_status({{$registro->id}})">Não Publicado</a>
-									@endif
-								</div>
-								<div class="col s12 m4">
-									<a class="btn azul-3 col s12" href="{{route('admin.editar', $registro->id)}}"">Editar</a>
-								</div>
-								<div class="col s12 m4">
-									<a class="btn blue-grey col s12" href="{{route('admin.deletar', $registro->id)}}"">Deletar</a>
-								</div>
-							</div>
-						</div>
-					</div>
-					@endforeach
-				</div>	
-			</div>	
-		</div>
-	</div>
+            <div class="card-panel hide-on-med-and-down">
+                <div id="estatistica" height="30px">
+                </div>
+            </div>
+            <div class="postagens">
+               @foreach($registros as $registro)
+               <div class="row">
+                   <div class="card cinza">
+                    <div class="card-content">
+                        <div class="row">
+                            <div class="col s12 m12 xl9">
+                                <span class="card-title admin_normal">
+                                    <h5>{{ str_limit($registro->titulo, $limit = 50, $end = '...') }}</h5>
+                                </span>
+                                <p>{{ str_limit($registro->descricao, $limit = 300, $end = '...')}}</p>
+                            </div>
+                            <div class="col s12 m12 xl3">
+                                <div class="icons right"> 
+                                @if($registro->edital)
+                                    <a class="tooltipped black-text" data-position="top" data-delay="50" data-tooltip="Edital: {{$registro->edital}}"><i class="material-icons">assignment</i></a>
+                                @endif
+                                <a class="tooltipped black-text" data-position="top" data-delay="50" data-tooltip="Data de Publicação: {{$registro->created_at->format('H:i - d/m/Y')}}"><i class="material-icons">access_time</i></a>
+                                <a class="tooltipped black-text" data-position="top" data-delay="50" data-tooltip="Data de Atualização: {{$registro->updated_at->format('H:i - d/m/Y')}}"><i class="material-icons">update</i></a>
+                                </div>
+                                <div class="chip col s12 blue-grey white-text">
+                                    @if($registro->remuneracao)
+                                    Remunaração: R${{$registro->remuneracao}}
+                                    @else
+                                    Sem Remuneração
+                                    @endif
+                                </div>
+                                @if($registro->carga_horaria)
+                                <div class="chip col s12 blue-grey white-text">
+                                    Carga Horaria: {{$registro->carga_horaria}} Horas
+                                </div>
+                                @endif
+                                @if($registro->email_contato)
+                                <div class="chip col s12 blue-grey white-text">
+                                    Contato: {{$registro->email_contato}}
+                                </div>
+                                @endif
+                                 @if($registro->area)
+                                <div class="chip col s12 blue-grey white-text">
+                                    Área de Atuação: {{$registro->area}}
+                                </div>
+                                @endif
+                                @if($registro->local)
+                                <div class="chip col s12 blue-grey white-text">
+                                    Curso: {{$registro->local}}
+                                </div>
+                                @endif
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-action">
+                        @if($registro->publicado == 'sim')
+                        <a id="publicado{{$registro->id}}" class="azul-1-text" href="javascript:altera_status({{$registro->id}})">Publicado</a>
+                        @else
+                        <a id="publicado{{$registro->id}}" class="azul-2-text" href="javascript:altera_status({{$registro->id}})">Não Publicado</a>
+                        @endif
+                        <a class="vermelho-text btnExcluir right" data-id="{{$registro->id}}">Deletar</a>
+                        <a class="azul-3-text right" href="{{route('admin.editar', $registro->id)}}">Editar</a>
+                    </div>
+                </div>
+            </div>
+            @endforeach
+        </div>	
+    </div>	
+</div>
+</div>
+<div id="modalExcluir" class="modal">
+    <div class="modal-content">
+        <h4 class="margin_left_normal">Confirmar Exclusão</h4>
+        <div class="row nomargin">
+            <div class="col s12">
+                <a class="btn col s12 m5 modal-close">Não</a>
+                <a class="btn col s12 m5 cinza-2 right nomargin" id="btnConfirmar">Sim</a>
+            </div>
+        </div>
+    </div>
 </div>
 @endsection
 
 @section('script')
-
 loadchart();
 <!-- BUSCA NO BANCO OS DADOS PARA O CHART -->
 function loadchart(){
@@ -86,6 +103,13 @@ function loadchart(){
         },
     });
 }
+<!-- FUNCTION DELETE APENAS USER AUTH -->
+$('.btnExcluir').click(function(){
+    var id = $(this).attr('data-id');
+    var par_url = "<?php echo url('/postagem/deletar/').'/'; ?>" + id;
+    $('#modalExcluir').modal('open');
+    $('#btnConfirmar').attr('href', par_url);
+  });
 
 <!-- CRIA CHART -->
 function chart(n_postagens,n_publicados,n_naopublicados){
@@ -148,13 +172,13 @@ function altera_status(idOport){
             $("#publicado"+idOport).empty();  		          
             if(retorno=='nao'){      	
                 $("#publicado"+idOport).append('NÃO PUBLICADO');
-                $("#publicado"+idOport).removeClass('azul-1');
-                $("#publicado"+idOport).addClass('cinza-3');
+                $("#publicado"+idOport).removeClass('azul-1-text');
+                $("#publicado"+idOport).addClass('azul-2-text');
             }
             else{
                 $("#publicado"+idOport).append("PUBLICADO");
-                $("#publicado"+idOport).addClass('azul-1');
-                $("#publicado"+idOport).removeClass('cinza-3');
+                $("#publicado"+idOport).addClass('azul-1-text');
+                $("#publicado"+idOport).removeClass('azul-2-text');
             }
             loadchart();
         },
