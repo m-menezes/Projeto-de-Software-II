@@ -13,67 +13,72 @@
                @foreach($registros as $registro)
                <div class="row">
                    <div class="card cinza">
-                    <div class="card-content">
-                        <div class="row">
-                            <div class="col s12 m12 xl9">
-                                <span class="card-title admin_normal">
-                                    <h5>{{ str_limit($registro->titulo, $limit = 50, $end = '...') }}</h5>
-                                </span>
-                                <p>{{ str_limit($registro->descricao, $limit = 300, $end = '...')}}</p>
-                            </div>
-                            <div class="col s12 m12 xl3">
-                                <div class="icons right"> 
-                                @if($registro->edital)
-                                    <a class="tooltipped black-text" data-position="top" data-delay="50" data-tooltip="Edital: {{$registro->edital}}"><i class="material-icons">assignment</i></a>
-                                @endif
-                                <a class="tooltipped black-text" data-position="top" data-delay="50" data-tooltip="Data de Publicação: {{$registro->created_at->format('H:i - d/m/Y')}}"><i class="material-icons">access_time</i></a>
-                                <a class="tooltipped black-text" data-position="top" data-delay="50" data-tooltip="Data de Atualização: {{$registro->updated_at->format('H:i - d/m/Y')}}"><i class="material-icons">update</i></a>
+                        <div class="card-content">
+                            <div class="row nomargin">
+                                <div class="row">
+                                    <div class="col s12 l9 card-title admin_normal">
+                                        <h5 class="nomargin">{{ str_limit($registro->titulo, $limit = 50, $end = '...') }}</h5>
+                                    </div>
+                                    <div class=" col s12 l3 icons"> 
+                                        @if($registro->edital)
+                                        <a class="tooltipped black-text" data-position="top" data-delay="50" data-tooltip="Edital: {{$registro->edital}}"><i class="material-icons">assignment</i></a>
+                                        @endif
+                                        <a class="tooltipped black-text" data-position="top" data-delay="50" data-tooltip="Data de Publicação: {{$registro->created_at->format('H:i - d/m/Y')}}"><i class="material-icons">access_time</i></a>
+                                        <a class="tooltipped black-text" data-position="top" data-delay="50" data-tooltip="Data de Atualização: {{$registro->updated_at->format('H:i - d/m/Y')}}"><i class="material-icons">update</i></a>
+                                    </div>
                                 </div>
-                                <div class="chip col s12 blue-grey white-text">
-                                    @if($registro->remuneracao)
-                                    Remunaração: R${{$registro->remuneracao}}
-                                    @else
-                                    Sem Remuneração
-                                    @endif
+                                <div class="row nomargin">
+                                    <div class="col s12 l8">
+                                        <p>{{ str_limit($registro->descricao, $limit = 300, $end = '...')}}</p>
+                                    </div>
+                                    <div class="col s12 l4">
+                                        <div class="chip col s12 blue-grey white-text">
+                                            @if($registro->remuneracao)
+                                            Remunaração: R${{$registro->remuneracao}}
+                                            @else
+                                            Sem Remuneração
+                                            @endif
+                                        </div>
+                                        @if($registro->carga_horaria)
+                                        <div class="chip col s12 blue-grey white-text">
+                                            Carga Horaria: {{$registro->carga_horaria}} Horas
+                                        </div>
+                                        @endif
+                                        @if($registro->email_contato)
+                                        <div class="chip col s12 blue-grey white-text">
+                                            Contato: {{$registro->email_contato}}
+                                        </div>
+                                        @endif
+                                        @if($registro->area)
+                                        <div class="chip col s12 blue-grey white-text">
+                                            Área de Atuação: {{$registro->area}}
+                                        </div>
+                                        @endif
+                                        @if($registro->local)
+                                        <div class="chip col s12 blue-grey white-text">
+                                            Curso: {{$registro->local}}
+                                        </div>
+                                        @endif
+                                    </div>
                                 </div>
-                                @if($registro->carga_horaria)
-                                <div class="chip col s12 blue-grey white-text">
-                                    Carga Horaria: {{$registro->carga_horaria}} Horas
-                                </div>
-                                @endif
-                                @if($registro->email_contato)
-                                <div class="chip col s12 blue-grey white-text">
-                                    Contato: {{$registro->email_contato}}
-                                </div>
-                                @endif
-                                 @if($registro->area)
-                                <div class="chip col s12 blue-grey white-text">
-                                    Área de Atuação: {{$registro->area}}
-                                </div>
-                                @endif
-                                @if($registro->local)
-                                <div class="chip col s12 blue-grey white-text">
-                                    Curso: {{$registro->local}}
-                                </div>
-                                @endif
                             </div>
                         </div>
-                    </div>
-                    <div class="card-action">
-                        @if($registro->publicado == 'sim')
-                        <a id="publicado{{$registro->id}}" class="azul-1-text" href="javascript:altera_status({{$registro->id}})">Publicado</a>
-                        @else
-                        <a id="publicado{{$registro->id}}" class="azul-2-text" href="javascript:altera_status({{$registro->id}})">Não Publicado</a>
-                        @endif
-                        <a class="vermelho-text btnExcluir right" data-id="{{$registro->id}}">Deletar</a>
-                        <a class="azul-3-text right" href="{{route('admin.editar', $registro->id)}}">Editar</a>
+                        <div class="card-action">
+                            @if($registro->publicado == 'sim')
+                            <a id="publicado{{$registro->id}}" class="azul-1-text" href="javascript:altera_status({{$registro->id}})">Publicado</a>
+                            @else
+                            <a id="publicado{{$registro->id}}" class="azul-2-text" href="javascript:altera_status({{$registro->id}})">Não Publicado</a>
+                            @endif
+                            <a class="vermelho-text btnExcluir right" data-id="{{$registro->id}}">Deletar</a>
+                            <a class="azul-3-text right" href="{{route('admin.editar', $registro->id)}}">Editar</a>
+                        </div>
                     </div>
                 </div>
-            </div>
-            @endforeach
+                @endforeach
+            </div>	
         </div>	
-    </div>	
-</div>
+        <?php echo $registros->render(); ?>
+    </div>
 </div>
 <div id="modalExcluir" class="modal">
     <div class="modal-content">

@@ -2,6 +2,30 @@
 body{
 	font-family: 'Raleway', sans-serif;
 }
+
+/* fallback */
+@font-face {
+	font-family: 'Material Icons';
+	font-style: normal;
+	font-weight: 400;
+	src: url(/css/materialize-icons.woff2) format('woff2');
+}
+
+.material-icons {
+	font-family: 'Material Icons';
+	font-weight: normal;
+	font-style: normal;
+	font-size: 24px;
+	line-height: 1;
+	letter-spacing: normal;
+	text-transform: none;
+	display: inline-block;
+	white-space: nowrap;
+	word-wrap: normal;
+	direction: ltr;
+	-webkit-font-feature-settings: 'liga';
+	-webkit-font-smoothing: antialiased;
+}
 .content{
 	min-height: 70.8vh;
 }
@@ -352,4 +376,23 @@ ul.mapa_site> li > a {
 .btnExcluir,
 .icons a{
 	cursor: pointer;
+}
+.icons{
+	text-align: right;
+}
+#userEmail{
+	overflow: hidden;
+	height: 40px;
+}
+.pagination li.active {
+	background-color: #607d8b !important;
+	color: white;
+}
+.pagination li {
+	width: 30px;
+	vertical-align: unset !important;
+    height: 25px !important;
+}
+.pagination{
+	text-align: center !important;
 }

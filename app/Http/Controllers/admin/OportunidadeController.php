@@ -11,16 +11,15 @@ use App\Area;
 use App\Curso;
 use Auth;
 
-class OportunidadeController extends Controller
-{
+class OportunidadeController extends Controller{
 
-	public function index()
-	{
-		$registros = Oportunidade::orderBy('created_at', 'DESC')->where('user_id', Auth::user()->id)->get();
+	public function index(){
+		$registros = Oportunidade::orderBy('created_at', 'DESC')
+								->where('user_id', Auth::user()->id)
+								->paginate(5);
 		$areas = Area::orderBy('descricao', 'ASC')->get();
 		return view('admin.index', compact( ['registros', 'areas'] ));
 	}
-
 
 
 	public function loadchart(){
@@ -295,12 +294,12 @@ class OportunidadeController extends Controller
 		}])
 		->whereHas('cursos', function($query) use ($areaId) {
 		+    		$query->where('area_id', $areaId);
-		})->get();*/
+	})->get();*/
 		//$areas  = Area::where('id', $areaId)->with('cursos')->get();
-	}
-	public function getOpportunitiesByText(Request $request)	{
-		$searchString = $request->input('searchString');
-		$opts = Oportunidade::updateOpportunitiesByText($searchString);
-		return $opts;
-	}
+}
+public function getOpportunitiesByText(Request $request)	{
+	$searchString = $request->input('searchString');
+	$opts = Oportunidade::updateOpportunitiesByText($searchString);
+	return $opts;
+}
 }

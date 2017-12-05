@@ -43,10 +43,5 @@
 	.fotoUsuario{
 		background-image: url(/storage/app/public/fotos/<?php echo Auth::user()->foto; ?>);
 	}
-	#userEmail{
-		font-size: 1.3vh;
-		overflow: hidden;
-		height: 40px;
-	}
 </style>
 

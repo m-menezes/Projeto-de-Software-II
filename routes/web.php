@@ -16,7 +16,7 @@
 Route::group(['middleware' => 'auth' ], function(){
 	// Admin's Routes
 	Route::get('/loadchart', [				'as' => 'admin.loadchart', 	'uses' => 'admin\OportunidadeController@loadchart' ]);
-	Route::get('/administrator', [ 			'as' => 'admin.index', 		'uses' => 'admin\OportunidadeController@index' ]);
+	Route::get('/administrator', 		[ 	'as' => 'admin.index', 		'uses' => 'admin\OportunidadeController@index' ]);
 	Route::get('/postagem/adicionar',[		'as' => 'admin.adicionar', 	'uses' => 'admin\OportunidadeController@adicionar']);
 	Route::get('/postagem/editar/{id}', [ 	'as' => 'admin.editar', 	'uses' => 'admin\OportunidadeController@editar']);
 	Route::put('/postagem/atualizar/{id}', ['as' => 'admin.atualizar',	'uses' => 'admin\OportunidadeController@atualizar']);

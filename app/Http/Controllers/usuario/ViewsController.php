@@ -15,7 +15,7 @@ use flash;
 class ViewsController extends Controller
 {
 	public function home(){
-		$registros = Oportunidade::orderBy('updated_at', 'DESC')->where('publicado', 'sim')->get();
+		$registros = Oportunidade::orderBy('updated_at', 'DESC')->where('publicado', 'sim')->paginate(5);
 		$areas     = Area::orderBy('descricao', 'DESC')->get();
         $cursos     = Curso::orderBy('descricao', 'DESC')->get();
         return view('index', compact(['registros', 'areas', 'cursos']));
@@ -26,7 +26,7 @@ class ViewsController extends Controller
                                 ->orwhere('titulo', 'like', '%' .$search . '%')
                                 ->orwhere('email_contato', 'like', '%' .$search . '%')
                                 ->orwhere('email_criador', 'like', '%' .$search . '%')
-                                ->get();
+                                ->paginate(5);
         $areas     = \App\Area::orderBy('descricao', 'asc')->get();
         return view('index', compact(['registros', 'areas']));  
     }

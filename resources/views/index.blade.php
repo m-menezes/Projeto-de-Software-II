@@ -55,6 +55,7 @@
 				
 				@endforeach
 			</div>	
+	        <?php echo $registros->render(); ?>
 		</div>
 	</div>
 </div>
