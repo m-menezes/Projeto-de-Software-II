@@ -16,7 +16,8 @@ class OportunidadesTableSeeder extends Seeder
     		'descricao' => 'Estão abertas as inscrições para bolsista da Secretaria Programa de Pós-Graduação em Ciência da Computação no período de 21 a 24 de agosto de 2017 até as 23h59min, devendo ser realizadas pelo endereço http://w3.ufsm.br/ppgi/bolsista/ conforme o edital.',
     		'email_contato' => 'oportunidadesufsm@gmail.com',
     		'email_criador' => 'oportunidadesufsm@gmail.com',
-    		'carga_horaria' => '20',
+            'carga_horaria' => '20',
+    		'remuneracao' => '200',
     		'publicado' => 'sim',
     		'user_id' => '1',
     	] ); 

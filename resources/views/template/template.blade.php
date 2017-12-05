@@ -95,7 +95,7 @@
 				case ('/'):
 					$("#home").addClass('active');
 					break;
-				case ('/admin'):
+				case ('/administrator'):
 					$("#painel_visualizar").addClass('active');
 					$("#admin").addClass('active');
 					break;
@@ -107,15 +107,15 @@
 					$("#painel_password").addClass('active');
 					$("#admin").addClass('active');
 					break;
-				case ('/admin/adicionar/postagem'):
+				case ('/postagem/adicionar'):
 					$("#painel_add_postagem").addClass('active');
 					$("#admin").addClass('active');
 					break;
-				case ('/admin/adicionar/areas'):
+				case ('/area/adicionar'):
 					$("#painel_add_area").addClass('active');
 					$("#admin").addClass('active');
 					break;
-				case ('/admin/adicionar/cursos'):
+				case ('/curso/adicionar'):
 					$("#painel_add_curso").addClass('active');
 					$("#admin").addClass('active');
 					break;
@@ -141,7 +141,9 @@
 			resizeFoto();
 		})
 		function resizeFoto(){
-			$('.fotoUsuario').height($('.fotoUsuario').width());
+			$('.fotoUsuario').width(($('.painel').width())-22.5);
+			$('.fotoUsuario img').height($('.fotoUsuario').width());
+			$('.fotoUsuario').height($('.fotoUsuario img').height()+20);
 		}
 		@yield('script')
 	</script>

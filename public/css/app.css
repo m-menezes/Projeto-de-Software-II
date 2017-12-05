@@ -10,7 +10,9 @@ body{
 	font-weight: 400;
 	src: url(/css/materialize-icons.woff2) format('woff2');
 }
-
+img{
+	max-width: 100%; 
+}
 .material-icons {
 	font-family: 'Material Icons';
 	font-weight: normal;
@@ -32,6 +34,8 @@ body{
 nav{
 	background-color: transparent !important;
 	box-shadow: unset !important;
+	z-index: 1000;
+	position: relative;
 }
 /*COLOR*/
 .azul-1{
@@ -164,7 +168,7 @@ nav{
 	padding: 0px !important;
 }
 /*PADDING*/
-/*MOBILE*/
+/*MOBILE SM*/
 @media(max-width: 600px){
 	.brand-logo{
 		font-size: 4vw !important;
@@ -187,11 +191,22 @@ nav{
 	.fotoUsuario{
 		display: none;
 	}
-
+	a#botaoHelp {
+		display: none;
+	}
 }
+
 /*MOBILE*/
+/*DESKTOP MD ONLY*/
+@media(max-width: 992px){
+	#chips_post{
+		margin-top: 20px;
+	}
+}
+/*DESKTOP MD ONLY*/
 /*DESKTOP*/
 @media(min-width: 600px){
+
 	.brand-logo img{
 		width: 40px;
 		margin-right: 10px;
@@ -230,9 +245,14 @@ nav{
 }
 /*DESKTOP*/
 /*FOOTER*/
+.fotoUsuario img{
+	margin: 10px 0px;
+}
 footer{
 	color: #ccc;
 	border-top:5px solid #ccc;
+	z-index: 100;
+	position: relative;
 }
 .footer{
 	text-align: center;
@@ -269,7 +289,7 @@ ul.mapa_site> li > a {
 	width: 130px;
 }
 .nav-wrapper{
-	border-bottom: 5px solid #ccc;
+	border-bottom: 5px solid #cccccc; 
 }
 .admin_normal h5{
 	text-transform: uppercase;
@@ -354,25 +374,6 @@ ul.mapa_site> li > a {
 	position: absolute  !important;
 	padding: 10px  !important;
 }
-
-#userFoto{
-	text-align: center;
-}
-#userFoto i{
-	font-size: 13em;
-	height: auto;
-	line-height: 250px;
-	color: white;
-}
-
-.fotoUsuario{
-	background-size: 100% 100%;
-	background-repeat: no-repeat;
-	height: 210px;
-	width: 100%;
-	border-radius: 50%;
-	margin:15px 0px;
-}
 .btnExcluir,
 .icons a{
 	cursor: pointer;
@@ -391,8 +392,22 @@ ul.mapa_site> li > a {
 .pagination li {
 	width: 30px;
 	vertical-align: unset !important;
-    height: 25px !important;
+	height: 25px !important;
 }
 .pagination{
 	text-align: center !important;
+}
+.chip{
+	height: unset !important;
+	overflow: hidden;
+}
+a#botaoHelp {
+	position: fixed;
+	bottom: 0px;
+	left: 0px;
+	z-index: 100;
+	background-color: rgba(0,0,0,0.2);
+	color: white;
+	padding: 10px 10px;
+	text-transform: uppercase;
 }

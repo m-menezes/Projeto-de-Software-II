@@ -26,6 +26,7 @@ class ViewsController extends Controller
                                 ->orwhere('titulo', 'like', '%' .$search . '%')
                                 ->orwhere('email_contato', 'like', '%' .$search . '%')
                                 ->orwhere('email_criador', 'like', '%' .$search . '%')
+                                ->where('publicado','sim')
                                 ->paginate(5);
         $areas     = \App\Area::orderBy('descricao', 'asc')->get();
         return view('index', compact(['registros', 'areas']));  

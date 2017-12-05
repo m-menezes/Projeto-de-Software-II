@@ -16,14 +16,14 @@
 						<div class="card cinza">
 							<div class="card-content">
 								<div class="row">
-									<div class="col  s12 m8">
+									<div class="col s12 l8">
 										<span class="card-title admin_normal">
 										<a class="azul-3-text" href="{{route('postagem', $registro->id)}}">{{ $registro->titulo }}</a>
 										</span>
 										<p>{{ str_limit($registro->descricao, $limit = 200, $end = '...')}}</p>
 									</div>
-									<div class="col s12 m4">
-										<div class="chip col s12 blue-grey white-text">
+									<div class="col s12 l4" id="chips_post">
+										<div class="chip col l12 blue-grey white-text">
 											@if($registro->remuneracao)
 											Remunaração: R${{$registro->remuneracao}}
 											@else
@@ -31,12 +31,12 @@
 											@endif
 										</div>
 										@if($registro->carga_horaria)
-										<div class="chip col s12 blue-grey white-text">
+										<div class="chip col l12 blue-grey white-text">
 											Carga Horaria: {{$registro->carga_horaria}} Horas
 										</div>
 										@endif
 										@if($registro->email_contato)
-										<div class="chip col s12 blue-grey white-text">
+										<div class="chip col l12 blue-grey white-text">
 											Contato: {{$registro->email_contato}}
 										</div>
 										@endif
