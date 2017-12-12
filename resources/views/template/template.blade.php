@@ -17,8 +17,6 @@
 	<title>{{config('app.name')}}</title>
 	<!--Imports Font Google, Materialize e CSS Personalizado-->
 	<link href="/css/app.css" rel="stylesheet">
-	<link rel="stylesheet" href="/css/font-awesome.min.css"/>
-	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 	<link type="text/css" rel="stylesheet" href="/css/materialize.min.css"  media="screen,projection"/>
 	<!--End Imports-->
 	<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
@@ -97,7 +95,7 @@
 				case ('/'):
 					$("#home").addClass('active');
 					break;
-				case ('/admin'):
+				case ('/administrator'):
 					$("#painel_visualizar").addClass('active');
 					$("#admin").addClass('active');
 					break;
@@ -109,15 +107,15 @@
 					$("#painel_password").addClass('active');
 					$("#admin").addClass('active');
 					break;
-				case ('/admin/adicionar/postagem'):
+				case ('/postagem/adicionar'):
 					$("#painel_add_postagem").addClass('active');
 					$("#admin").addClass('active');
 					break;
-				case ('/admin/adicionar/areas'):
+				case ('/area/adicionar'):
 					$("#painel_add_area").addClass('active');
 					$("#admin").addClass('active');
 					break;
-				case ('/admin/adicionar/cursos'):
+				case ('/curso/adicionar'):
 					$("#painel_add_curso").addClass('active');
 					$("#admin").addClass('active');
 					break;
@@ -143,7 +141,9 @@
 			resizeFoto();
 		})
 		function resizeFoto(){
-			$('.fotoUsuario').height($('.fotoUsuario').width());
+			$('.fotoUsuario').width(($('.painel').width())-22.5);
+			$('.fotoUsuario img').height($('.fotoUsuario').width());
+			$('.fotoUsuario').height($('.fotoUsuario img').height()+20);
 		}
 		@yield('script')
 	</script>

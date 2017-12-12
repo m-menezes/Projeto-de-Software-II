@@ -11,23 +11,34 @@ use App\Curso;
 use Auth;
 use Validator;
 use flash;
-
+use DB;
 class ViewsController extends Controller
 {
 	public function home(){
-		$registros = Oportunidade::orderBy('updated_at', 'DESC')->where('publicado', 'sim')->get();
+		$registros = Oportunidade::where('publicado', 'sim')->orderBy('updated_at', 'DESC')->paginate(5);
 		$areas     = Area::orderBy('descricao', 'DESC')->get();
         $cursos     = Curso::orderBy('descricao', 'DESC')->get();
         return view('index', compact(['registros', 'areas', 'cursos']));
 	}
     public function getOportunidadesByText(Request $request) {
+        DB::enableQueryLog();
         $search = $request->input('searchString');
-        $registros = Oportunidade::where('descricao', 'like', '%' .$search . '%')
-                                ->orwhere('titulo', 'like', '%' .$search . '%')
-                                ->orwhere('email_contato', 'like', '%' .$search . '%')
-                                ->orwhere('email_criador', 'like', '%' .$search . '%')
-                                ->get();
-        $areas     = \App\Area::orderBy('descricao', 'asc')->get();
+        $areas = '';
+        if( empty( $search) || $search == '') {
+            $registros = Oportunidade::where('publicado', 'sim')->orderBy('updated_at', 'DESC')->paginate(5);
+            $areas     = \App\Area::orderBy('descricao', 'asc')->get();
+        }
+        else
+        {            
+            $registros = Oportunidade::where('publicado', 'sim')->where(function ($q) use($search){
+                    return $q->where('titulo', 'like', '%' .$search . '%')                    
+                    ->orwhere('email_contato', 'like', '%' .$search . '%')
+                    ->orwhere('email_criador', 'like', '%' .$search . '%')
+                    ->orwhere('descricao', 'like', '%' .$search . '%');
+                })->paginate(5);
+                //dd( DB::getQueryLog());
+            $areas     = \App\Area::orderBy('descricao', 'asc')->get();
+        }
         return view('index', compact(['registros', 'areas']));  
     }
         public function teste()

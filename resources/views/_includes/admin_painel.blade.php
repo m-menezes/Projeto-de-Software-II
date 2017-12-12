@@ -3,16 +3,16 @@
 	<div class="painel azul-3">
 			<div class="col s12 azul-3 circle" id="userFoto">
 				<?php if (Auth::user()->foto) {
-					echo '<div class="fotoUsuario"></div>';
+					echo '<div class="fotoUsuario"><img class="circle" src="/storage/app/public/fotos/'.Auth::user()->foto.'" alt="Imagem default de Usuario"></div>';
 				}
 				else{
-					echo '<i class="material-icons">account_circle</i>';
+					echo '<div class="fotoUsuario"><img src="/img/avatar-default.png" alt="Imagem default de Usuario"></div>';
+					// echo '<div class="fotoUsuario"><img class="circle" src="/img/img_parallax.jpg" alt="Imagem default de Usuario"></div>';
 				}?>
 			</div>
 		<nav>
 			<ul>
 				<li class="col s12">{{Auth::user()->name}}</li>
-				<li class="col s12" id="userEmail">{{Auth::user()->email}}</li>
 				<hr>
 				<li id="painel_name">
 					<a href="{{route('edit_name')}}">Alterar Dados<i class="material-icons right">person_pin</i></a>
@@ -39,14 +39,4 @@
 		</nav>
 	</div>
 </div>
-<style type="text/css">
-	.fotoUsuario{
-		background-image: url(/storage/app/public/fotos/<?php echo Auth::user()->foto; ?>);
-	}
-	#userEmail{
-		font-size: 1.3vh;
-		overflow: hidden;
-		height: 40px;
-	}
-</style>
 

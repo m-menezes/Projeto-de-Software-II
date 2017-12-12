@@ -42,7 +42,7 @@
 				<option value="{{ $curso->descricao }}" {{ isset($registro->local) && $registro->local == $curso->descricao ? 'selected' : '' }}>{{ $curso->descricao }}</option>
 				@endforeach
 			</select>
-			<label for="input_text">Local</label>
+			<label for="input_text">Curso</label>
 		</div>
 	</div>
 	<div class="col s12 m4">
