@@ -15,11 +15,12 @@ use DB;
 class ViewsController extends Controller
 {
 	public function home(){
-		$registros = Oportunidade::where('publicado', 'sim')->orderBy('updated_at', 'DESC')->paginate(5);
+	    $registros = Oportunidade::where('publicado', 'sim')->orderBy('updated_at', 'DESC')->paginate(5);
 		$areas     = Area::orderBy('descricao', 'DESC')->get();
         $cursos     = Curso::orderBy('descricao', 'DESC')->get();
         return view('index', compact(['registros', 'areas', 'cursos']));
-	}
+      }
+      
     public function getOportunidadesByText(Request $request) {
         DB::enableQueryLog();
         $search = $request->input('searchString');
